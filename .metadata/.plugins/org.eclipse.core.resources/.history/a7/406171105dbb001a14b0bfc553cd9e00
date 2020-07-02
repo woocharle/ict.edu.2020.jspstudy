@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script>
+			function send_go(){
+				
+			}
+		</script>
+	</head>
+	<body>
+		<form action="/Jspstudy/EX17-1" method ="post">
+			<input type= "submit" value = "오늘날짜구하기">
+		</form>
+		<form action="/Jspstudy/EX17-2" method ="post">
+			<input type= "submit" value = "운수구하기">
+		</form>
+		
+		<button onclick="send_go()">IP 구하기</button>
+		
+	</body>
+</html>

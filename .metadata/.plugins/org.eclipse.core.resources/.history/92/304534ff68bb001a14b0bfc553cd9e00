@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+	<script>
+	
+	</script>
+	<body>
+		<form action="/Jspstudy/Ex19?com=1" method ="post">
+			<input type= "submit" value = "오늘날짜구하기">
+		</form>
+		<form action="/Jspstudy/Ex19?com=2" method ="post">
+			<input type= "submit" value = "운수구하기">
+		</form>
+		
+		<button onclick="send_go()">IP 구하기</button>
+	</body>
+</html>

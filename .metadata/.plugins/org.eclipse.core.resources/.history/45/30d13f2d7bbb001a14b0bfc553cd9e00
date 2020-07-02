@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>알바비 구하는 화면</title>
+	</head>
+	<body>
+		<h1> 알바비 구하는 화면 </h1>
+		<form action="/Jspstudy/Ex21?cmd=3" method="post">
+			<fieldset>
+				<legend> 시급 및 근무시간 입력 </legend>
+				<p> 이름: <input type = "text" name = "name" placeholder ="이름입력"></p>
+				<p> 시급: <input type = "number" name = "pay" placeholder = "국어점수"></p>
+				<p> 근무시간: <input type = "number" name = "time" placeholder = "영어점수"></p>
+				<p><input type="submit" value ="보내기"></p>
+			
+			</fieldset>
+
+		</form>
+	</body>
+</html>

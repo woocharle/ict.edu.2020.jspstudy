@@ -1,0 +1,44 @@
+package com.ict.model;
+
+public class Cmd04 {
+	public int s_sum(int kor, int eng, int math) {
+		return kor + eng + math;
+	}
+	
+	public double d_avg(int sum) {
+		return (int)(sum/3.0 * 10)/10.0;
+	}
+	
+	public String s_grd(double avg) {
+		String grd ="";
+		
+		if (avg >= 90) {
+			grd = "A";
+		} else if (avg >= 80) {
+			grd = "B";
+		} else if (avg >= 70) {
+			grd = "C";
+		} else {
+			grd = "F";
+		}
+		
+		return grd;
+	}
+	
+	public int o_sum(String op, String su1, String su2) {
+		int sum=0;
+		int s1 = Integer.parseInt(su1);
+		int s2 = Integer.parseInt(su2);
+		
+		switch (op) {
+			case "+": sum = s1 + s2 ; break;
+			case "-": sum = s1 - s2 ; break;
+			case "*": sum = s1 * s2 ; break;
+			case "/": sum = s1 / s2 ; break;
+		}
+		
+		return sum;
+	}
+	
+	
+}

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style type="text/css">
+			form{display: inline;}
+		
+		</style> 
+	</head>
+	<body>
+		<form action="/Jspstudy/Ex20?cmd=1">
+			<input type="submit" value="성적 구하는 화면">
+		</form>
+	
+		<form action="/Jspstudy/Ex20?cmd=2">
+			<input type="submit" value="사칙연산 구하는 화면">
+		</form>
+	
+		<form action="/Jspstudy/Ex20?cmd=3">
+			<input type="submit" value="알바비 구하는 화면">
+		</form>
+	
+	</body>
+</html>

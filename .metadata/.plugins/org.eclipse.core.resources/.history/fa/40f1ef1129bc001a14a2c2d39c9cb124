@@ -1,0 +1,11 @@
+package com.ict.model;
+
+public class VO_1 {
+	private String name;
+	private String grd;
+	private int kor;
+	private int eng;
+	private int math;
+	
+	
+}

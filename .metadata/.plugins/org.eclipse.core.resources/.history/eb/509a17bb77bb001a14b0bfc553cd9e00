@@ -1,0 +1,13 @@
+package com.ict.model;
+
+public class Cmd04 {
+	public int s_sum(int kor, int eng, int math) {
+		return kor + eng + math;
+	}
+	
+	public double d_avg(int sum) {
+		return (int)(sum/3.0 * 10)/10.0;
+	}
+	
+	
+}

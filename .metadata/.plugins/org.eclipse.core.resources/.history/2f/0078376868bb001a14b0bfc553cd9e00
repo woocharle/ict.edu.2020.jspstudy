@@ -1,0 +1,12 @@
+package com.ict.model;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class Cmd01 {
+	public String exec(HttpServletRequest request, HttpServletResponse response) {
+		String msg=""; //결과를 받을 html파일이름.
+		
+		return msg;
+	}
+}

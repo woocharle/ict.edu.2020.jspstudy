@@ -1,0 +1,260 @@
+서블릿 & JSP
+
+1. 환경 설정 :
+  1) JDK 설치 및 환경 설정
+  2) tomcat 설치 및 환경 설정
+   가.환경설정
+       tomcat 폴더 안에 bin   ------  실행파일 
+                      conf  ------  환경설정
+                      wabapps ----  Web Page 올리는 장소
+                                    루트 디렉토리(HOME)
+       conf -> server.xml 파일 수정
+       <Connector URIEncoding="UTF-8" port="8090"
+        protocol="HTTP/1.1"
+               connectionTimeout="20000"
+               redirectPort="8443" />  
+
+     ** URIEncoding="UTF-8" 추가  => 한글 처리
+     ** port="8080" 인데  오라클과 같은 포트를 사용하므로 
+        port="8090" 으로 변경 한다.
+
+   나. 실행하기
+        bin -> startup.bat 
+      웹 브라우저에서 http://localhost:8090/ 실행했을때 
+      아파치 톰켓 웹 문서가 나와야 된다. 
+      실제 자기 고정IP 주소로 도 나와야 된다.
+      http://192.168.131.1:8090/
+
+   다. 다른 문서 만들어서 넣어서 보기 
+       wabapps -- ROOT - first.txt 파일 만들고 내용을 넣어서 
+       웹 브라우저에서  http://192.168.131.1:8090/first.txt 입력해서 
+       해당 문서 확인 
+
+       wabapps 폴더 안에 내가 직접 test폴더 만들어서 
+       해당문서를 넣고 확인 하자
+       http://192.168.131.1:8090/test/first.txt 
+
+===========================================================
+c:/study/jspstudy 폴더 만들고 작업공간 지정하고  
+이클립스 에서 환경 설정 하기
+window - preferances 
+       - General - Appearance - Basic- Text Font : 글꼴, 글자 크기 조정
+       - Workspace - Text file encoding - Other : UTF-8 변경
+       - Web - CSS Files   \
+       - Web - HTML Files  - Encoding - UTF-8 변경
+       - Web - JSP Files   /
+       - Server(Tomcat) => 이클립스에서 가상으로 톰켓 지정
+       - Server - Runtime Environment - Add -  tomcat 지정
+
+이클립스 화면에서 하단에  server tab 선택 - 가상 서버 추가 하면 
+실제 tomcat의 정보를 복사해서 가상의 WAS(웹 어플리케이션 서버)를 만들다.
+
+===============================================================
+이 이후는 JSP 교안 보기 
+
+==============================================================
+서블릿과 JSP 차이점 
+
+1. 서블릿 : 먼저 나왔으나 사용하기가 불편해서 MVC패턴에서 controller로만 사용하고 있다.
+         -> 자바코드안에서 HTML를 사용하는 것
+
+2. JSP : 서블릿의 불편함을 해소하기 위핸 나옴
+        -> HTML안에서 자바코드를 사용하는 것           
+
+  나중에 톰켓은 JSP를 자동으로 서블릿으로 변경해서 사용한다.
+
+==============================================================
+
+서블릿 먼저 학습하기 
+프로젝트 만들기 - new - Dymaic Web Preject 선택 *Target runtime 확인 반드시 할 것.
+이름을 프로젝트 이름과 같게 할 것.
+
+
+======================================================================================================
+0. Introduction
+
+ (1) 웹브라우저는 리퀘스트 (요청) responce (응답)으로 이루어져 있다. 
+ 
+ (2) Linux는 웹서버와 웹 어플리케이션을 따로 쓰지만, 통상 Web Application Server를 쓴다.
+
+ (3) 지금은 어플리케이션 서버 방식을 쓴다.
+
+ (4) 서블릿(Servlet) 클래스
+
+     1) 자바에서 HTML을 집어 넣는 것.
+     
+     2) main method가 없지만, 웹 환경에 output과 input을 할 수 있다.
+
+     3) 서블릿은 자바에서 만든다.
+
+     4) Package 생성 -> Class가 아닌 Servlet -> 이름 정하고 -> next -> URL Mapping을 확인 및 수정
+	-> next -> init, destroy, service, doGet, doPost
+
+ (5) JSP: HTML안에 자바코드를 집어 넣는 것.  
+
+ 같은 자바인데 서블릿클래스와 JSP로 나눈 이유? 
+ 
+ (6) 서블릿은 HTML과 달리 F5로 최신화 된것을 확인 할 수 없어서 server를 중지 했다가 다시 시작해야 된다.
+
+ (7) html주석과 차이
+ 	
+	<!-- html주석: 소스보기에서 내용이 보인다. -->
+	<%-- jsp주석: 소스보기에서 내용이 보이지 않는다. 
+		 JSP: Java Server page
+		 	  HTML 안에서 자바코드를 사용할 때 사용한다. 
+		 	 
+	--%>                                  
+
+1. JSP의 기본 구성
+
+ (1) 디렉티브(지시어) : JSP 페이지에 대한 정보를 표시 / 표현방법 <%@ (지시어종류) %>
+     ex) <%@ page language="java" contentType="text/html; charset=EUC-KR"pageEncoding="EUC-KR"%>     
+
+ (3) 스크립트요소: 표현방법 <%		%> 
+
+ (4) 표현식: 표형방법 <%=	%> 
+
+
+2. 지시어(디렉티브) [jsp_2.ppt (4p)]
+  
+  (1) page
+
+      	1) 현재 JSP 페이지에 대한 정보를 지정한다. JSP가 생성하는 문서의 타입, 출력 버퍼의 크기,
+	   에러 페이지 등 JSP 페이지에서 필요로 하는 정보를 입력. 
+
+	2) 톰켓이 해당 page지시어를 보고, 해당 페이지를 어떻게 해석할 지 판단하는 정보가 된다.
+
+	3) 보통 이클립스에서 자동으로 만들어 준다.
+
+	4) page 지시어 속성
+	   
+	   4-1) language: 스크립트 코드에 사용하는 언어
+	  
+	   4-2) contentType: 문서 타입과 캐릭터 인코딩을 지정
+		- 인코딩(부호화=암호화): 정보의 형태를 변환하여 처리
+		- 디코딩(복호화)       : 변환된 정보를 원래 형태로 되돌리는 것.
+
+	   4-3) pageEncoding: 해당문서를 UTF-8 형태로 변환해서 처리 한다. 
+
+	   4-4) session: 세션 여부 사용(기본값: true)
+		* session이란? 사용자 정보를 서버측에서 저장하고 관리하는 공간, 생명주기는 웹 브라우저가 
+                               종료 될 때까지 (로그인처리할 때 사용.)
+		               예외) 은행 로그인 (정해진 시간이 지나면 자동으로 로그 아웃)
+
+	   
+	   4-5) buffer: 출력버퍼의 크기 지정(기본: 8kb)
+
+	   4-6) autoFlush: 버퍼의 내용을 자동으로 출력 시켜줌(기본값: true)
+
+	   4-7) errorPage: 오류 페이지를 지정
+
+	   4-8) iserrorPage: 해당 페이지가 오류 페이지이면 true, 기본값: false
+  
+	   4-#) 보충 : jsp_2.ppt (10 - 11p), 교재 (chapter3 55p ~ 64p)
+
+  (2) include 
+
+	1) JSP 페이지의 특정 영역에 다른 문서를 포함시킨다. 지정한 문서의 소스를 복사하여 현재 문제에 
+	   붙여 넣는 것과 같음.
+
+	2) Html과 비슷함.
+	
+  (3) taglib: JSP 페이지에서 사용할 태그 라이브러리를 지정한다.
+
+
+3. 스크립트 요소 
+
+  (1) 선언부
+	
+	1) 정의: 전역변수선언과 메소드 선언을 할 때 사용.
+
+	2) 표현방법: <%! (자바코드)  %>	
+
+  (2) 스크립트릿
+
+	1) 순수 자바코드를 작성(실행)할 때 사용
+
+	2) 표현방법: <% (자바코드) %>
+
+	3) Inner Object
+
+  (3) 표현식
+
+	1) 변수값을 출력 할 때
+
+	2) 표현방법: <%= (자바코드) %>
+
+	3) 메소드 결과를 출력할 때 
+
+	4) 나중에는 EL이나 JSTL이 대신 사용 된다. 
+
+  * 위 3요소는 겹쳐서 사용할 수 없다. 반드시 별도로 사용해야 한다. 
+
+  (4) 내장 객체: Jsp에서 가지고 있는 Object.   
+
+ 
+4. JSP innerObject : Jsp에서 사용할 수 있도록 지원하는 객체 
+
+   (1) Intro
+
+        1) servlet에서 온 것 request, response, out
+
+	2) 나머지: page, pageContext, session, application, config, exception
+
+	* request, response, page, pagecontext, session, application이 많이 사용 됨.
+
+   (2) Request
+	
+	1) 웹프로그래밍에서 가장 많이 사용된다. 
+
+	2) Client가 요청한 정보를 담고 있는 객체
+
+	3) 파라미터 값을 가지고 있다.
+
+	4) 생명주기: response를 하면 없어진다.
+
+	5) request가 가지고 있는 정보들
+
+	   5-1) Client의 정보 및 서버 정보를 얻을 수 있는 메소드 제공
+
+	   5-2) html form 정보와 요청 parameter의 정보를 제공
+
+	   5-3) 요청 헤드의 정보 제공.
+
+	   5-4) 클라이언트의 정보 및 서버 정보를 얻을 수 있는 메소드
+		
+		- getRemoteAddr()			- getContentLength()
+
+		- getCharacterEncodeing()		- getContentType()
+	
+		- getProtocol()				- getMethod() : 전송방식
+
+		- getRequestURI() : 경로를 볼 때	- getContentPath() : 
+
+		- getServerName() : 			- getServerPort : 
+
+		 
+	   5-4) html 폼과 요청 파라미터의 정보를 제공하는 메소드 *(중요)*
+
+	   5-5) 요청 헤드의 정보를 제공하는 메소드
+
+	   5-6) 다른 주요 메소드 *(중요)*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+  
+
+ 

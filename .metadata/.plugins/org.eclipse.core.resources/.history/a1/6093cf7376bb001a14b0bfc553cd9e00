@@ -1,0 +1,58 @@
+package com.ict.edu01;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+
+@WebServlet("/Ex21")
+public class Ex21 extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doPost(request, response);
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = response.getWriter();
+		String result="";
+		String cmd = request.getParameter("cmd");
+		switch (cmd) {
+			case "1":
+				String name;
+				int kor;
+				int eng;
+				int math;
+				int sum;
+				double avg;
+				String grd;
+				
+				out.println("<h2> 결과 </h2>");
+				out.println("<h2><ul>");
+				out.println("<li> 이름: "+ name +"</li>");
+				out.println("<li> 국어: "+ kor +"</li>");
+				out.println("<li> 영어: "+ eng +"</li>");
+				out.println("<li> 수학: "+ math +"</li>");
+				out.println("<li> 총점: "+ sum +"</li>");
+				out.println("<li> 평균: "+ avg +"</li>");
+				out.println("<li> 학점: "+ grd +"</li>");
+				out.println("</ul></h2>");
+				break;
+			case "2": 
+				break;
+			case "3": 
+				break;
+	
+		}
+		
+		
+	}
+
+}

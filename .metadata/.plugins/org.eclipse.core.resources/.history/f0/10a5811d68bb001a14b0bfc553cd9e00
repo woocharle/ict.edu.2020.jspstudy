@@ -1,0 +1,7 @@
+package com.ict.model;
+
+public class Cmd01 {
+	public String exec() {
+		
+	}
+}
