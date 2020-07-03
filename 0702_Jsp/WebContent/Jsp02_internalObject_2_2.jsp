@@ -14,7 +14,7 @@
 	<body>
 		<h1> 파라미터 결과 보기 </h1>
 		<h2> 
-			<li> id : <%=id %>></li>
+			<li> id : <%=id %></li>
 			<li> pw : <%=pw %></li>
 		
 		
