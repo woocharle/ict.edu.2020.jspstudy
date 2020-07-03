@@ -1,0 +1,33 @@
+<%@page import="java.util.Enumeration"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<% 
+	request.setCharacterEncoding("UTF-8");
+	String id = request.getParameter("id");
+	String pw = request.getParameter("pw");
+
+
+%>
+    
+    
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="UTF-8">
+	<title> JSP 내장 객체: response </title>
+	</head>
+	<body>
+		
+		<h1> JSP 내장 객체: response_Intro </h1>
+		
+		<form action="" method="post">
+			<p>ID: <input type="text" name="id"></p>
+			<p>PW: <input type="password" name="pw"></p>
+			<p>ID: <input type="text" name="id"></p>
+			
+		</form>
+		
+		
+	
+	</body>
+</html>
