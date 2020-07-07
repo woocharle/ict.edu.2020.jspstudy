@@ -146,9 +146,13 @@ window - preferances
 
 	   4-6) autoFlush: 버퍼의 내용을 자동으로 출력 시켜줌(기본값: true)
 
-	   4-7) errorPage: 오류 페이지를 지정
+	   4-7) errorPage: 오류 페이지를 지정  [Jsp03_IO_5_0.jsp]
 
-	   4-8) iserrorPage: 해당 페이지가 오류 페이지이면 true, 기본값: false
+	   4-8) iserrorPage: 해당 페이지가 오류 페이지이면 true, 기본값: false [Jsp03_IO_5_1.jsp]
+
+		true일 경우 exception을 이용 할 수 있다.
+
+		false일 경우 exception을 이용 할 수 없다.
   
 	   4-#) 보충 : jsp_2.ppt (10 - 11p), 교재 (chapter3 55p ~ 64p)
 
@@ -188,12 +192,15 @@ window - preferances
 
 	4) 나중에는 EL이나 JSTL이 대신 사용 된다. 
 
+	5) 세미콜론(;)을 넣으면 오류가 난다.
+
   * 위 3요소는 겹쳐서 사용할 수 없다. 반드시 별도로 사용해야 한다. 
 
   (4) 내장 객체: Jsp에서 가지고 있는 Object.   
 
- 
-4. JSP innerObject : Jsp에서 사용할 수 있도록 지원하는 객체 
+
+
+4. JSP innerObject : Jsp에서 사용할 수 있도록 지원하는 객체 [Jsp02_IO_1]
 
    (1) Intro
 
@@ -221,7 +228,15 @@ window - preferances
 
 	   5-3) 요청 헤드의 정보 제공.
 
-	   5-4) 클라이언트의 정보 및 서버 정보를 얻을 수 있는 메소드
+	   5-4) 기본 객체 
+
+		- request 속성을 통한 데이터(값) 저장 : request.setAttribute("이름", 데이터);
+
+		- request 속성을 통한 저장된 데이터 호출 : request.getAttribute("이름");
+
+		- 생명주기: response를 하기 전까지는 데이터를 가지고 있다.
+
+	   5-5) 클라이언트의 정보 및 서버 정보를 얻을 수 있는 메소드
 		
 		- getRemoteAddr()			- getContentLength()
 
@@ -234,7 +249,7 @@ window - preferances
 		- getServerName() : 			- getServerPort : 
 
 		 
-	   5-4) html 폼과 요청 파라미터의 정보를 제공하는 메소드 *(중요)*
+	   5-6) html 폼과 요청 파라미터의 정보를 제공하는 메소드 *(중요)*
 
 		- getParameter(String name) : String
 
@@ -245,7 +260,7 @@ window - preferances
 		- getParameterNames() : Enumeration
  
 
-	   5-5) 요청 헤드의 정보를 제공하는 메소드
+	   5-7) 요청 헤드의 정보를 제공하는 메소드
 
 		- getHeader(String name) : 헤더값 구하기 
 
@@ -257,17 +272,13 @@ window - preferances
 
 		- getDateHeader(String name) : 헤더값을 시간값으로 구하기
 
-	   5-6) 다른 주요 메소드 *(중요)*
+	   5-8) 다른 주요 메소드 *(중요)*
 
 		- 포워딩 : request.getRequestDispatcher("이동장소").foward(request, response)
 
 		- session 호출: request.getSession();
 
-		- request 속성을 통한 데이터(값) 저장 : request.setAttribute("이름", 데이터);
-
-		- request 속성을 통한 저장된 데이터 호출 : request. getAttribute("이름");
-
-
+	
    (3) Response
 
 	1) Intro
@@ -310,32 +321,183 @@ window - preferances
 
 	2) out: 브라우저에 출력하는 역할 태그를 이용해야지만 줄 변경, 띄어쓰기 가능
 
+  (4) pageContext
+
+	1) 정의: 하나의 JSP 페이지내에서 고유될 값을 저장한다.
+
+	2) 해당 페이지와 일대일로 연결된 객체를 의미한다.
+
+	3) getRequest(), getResponse(), getOut(), getPage(), getSession(), 
+	   
+           getServletContext(), getServletConfig(), getException()
+
+	4) 속성을 활용한 데이터 저장과 호출
+
+	   4-1) 저장방법: pageContext.setAttribute("이름", 데이터);  
+
+	   4-2) 호출방법: pageContext.getAttribute("이름"); 
+
+	   4-3) 생명주기: 해당페이지를 벗어나면 데이터도 사라진다.
+  
+  (5) session (로그인 할 때만 씀.)
+
+	1) 정의: server와 client간의 접속을 유지 시켜주기 위한 객체.
+
+	2) 속성을 활용한 데이터 저장과 호출
+
+	   2-1) 저장방법: session.setAttribute("이름", 데이터);  
+
+	   2-2) 호출방법: session.getAttribute("이름"); 
+
+	   2-3) 생명주기: 일반적으로 웹브라우저가 종료되면 사라진다.
+
+  (6) application (보안 상 문제로 잘 안 쓰임.)
+
+	1) 정의: 모든 사용자와 관련해서 공유할 정보를 저장한다.
+		 웹 어플리케이션의 설정 정보를 주로 저장한다. 
+
+	2) 속성을 활용한 데이터 저장과 호출
+
+	   2-1) 저장방법: application.setAttribute("이름", 데이터);  
+
+	   2-2) 호출방법: application.getAttribute("이름"); 
+
+	   2-3) 생명주기: 어플리케이션이 종료하면 정보도 사라짐.
 
 
 
+5. 페이지 이동 
+
+  (1) 속성을 활용한 데이터 저장과 호출 
+
+	1) 우선순위 : pageContext > request > session > application
+
+  (2) forward 방식: request, response가 기존 것을 사용.
+
+  (3) sendRedirect 방식: request, response가 새로운 것을 사용.
+
+  (4) 생명주기 
+
+	1) pageContext: 해당 페이지를 벗어나면 정보가 사라짐.
+
+	2) request: forward를 할 때는 살지만 sendRedirect를 하면 정보가 사라짐.
+
+	* request를 제일 많이 씀.		
 
 
+6. 에러처리
 
+  (1) java에 쓰던 try ~ catch 문을 쓴다.
 
+  (2) erroePage를 이용한다. 
 
+  (3) exception
 
+	1) 에러 타입 : <%= exception.getClass().getName() %></h3>
 
+	2) 에러 메세지 : <%= exception.getMessage() %></h3>
 
+7. 액션 태그 [Jsp04_1_0.jsp ~ Jsp04_2_3.jsp]
 
+  (1) 액션 태그: jsp 페이지간에 흐름제어, 자비 빈즈 컴포넌트 지원
 
+  (2) 사용법: <jsp:액션명령></액션명령>, <jsp:액션명령 />
 
+  (3) 명령어
 
+	1) include: 현재 페이지에서 다른 페이지 내용을 보여주는 것. [Jsp03_IO_6_0.jsp]
 
+	   1-1) 종류
 
+		- include 액션 : 제어권이 다른 페이지에서 가서 처리하고 결과만 가져온다.
+		  <jsp:include page="가져올 페이지 이름"/>
 
+		  <jsp:include page="가져올 페이지">
+			<jsp:param value ="" name="" >
+ 		  </jsp:include>
 
+		  * 웹페이지에서 한글이 깨지는 것을 방지하기 위해 해당 페이지에서 한글 처리를 해야된다.	
+		    <% request.setCharacterEncoding("UTF-8"); %>
+	    
+	   1-2) include 지시어: 다른 페이지의 소스 전체를 가져와서 현재 페이지에서 한번에 처리		
+		
+		- 형식: <%@ include file="Jsp02_internalObject_2_0.jsp" %>		
 
+		- include 지시어는 paramater 값을 전달 할 수 없다.
 
+		- 가지고 온 페이지에서 만든 변수를 사용할 수 있다.
+		
 
+	2) forward: 페이지 이동
 
+	3) useBean(자바빈) [Jsp03_IO_6_3.jsp]
 
+	   3-1) JSP에서 파라미터값을 저장할 목적으로 제공하는 저장공간.
 
+	   3-2) 자바 빈에 저장되어있는 객체를 뜻한다.
+
+	   3-3) 사용순서
+
+		- VO를 만든다. (변수들의 이름은 파라미터의 이름들과 같아야한다.)
+
+		- 파라미터를 받은 페이지에서 빈 객체를 생성.
+		  <jsp:useBean id = "호출이름" class="vo객체위치" scope="범위" />
+		  scope: page(기본) < request < session < application
+
+		- <jsp:setProperty> 사용하면 parameter값들이 알아서 vo객체에 들어간다.
+
+		- <jsp:getProperty> 사용하면 parameter값들을 가져올 수 있다.
+		
+	    
+	   3-4) 객체 만들기
+  
+		- 자바에서 VO vo= new VO; 
+		  => <jsp:useBean id="vo" class ="com.ict.edu.VO"/> 
+	    
+	   3-5) 파라미터 값들이 vo와 이름 같으면 setter 호출에서 파라미터 값을 저장시킨다.
+		name="vo"의 vo는 useBean id를 말한다.
+		<jsp:setProperty property="*" name="vo"/>
+		
+
+8. 쿠키 [Jsp05_1_0.jsp]
+
+  (1) Intro
+
+	1) 쿠키란? 웹 브라우저(클라이언트)가 정보를 보관하는 저장소를 말한다. 
+	     
+  	2) 웹 브라우저와의 관계: 웹 서버에서 정보를 요청할 때 쿠키와 함께 전송한다.
+
+	3) 웹 서버와의 관계 
+
+	   3-1) 웹 브라우저가 전송한 쿠키를 사용해서 필요한 데이터를 읽을 수 있다.
+
+	   3-2) 쿠키로 웹 브라우저에게 정보를 전송할 수 있다.
+
+	4) 쿠키는 웹서버와 웹 브라우저 양쪽에 생성 할 수 있는데 JSP에서 생성하는 쿠키는 
+	   웹 서버에서 생성하는 쿠키이다. 하나의 브라우저에서는 여러개의 쿠키를 가질 수 있다.
+
+  (2) 주요 메소드 	
+
+	1) setDomain(String pattern) : 이 쿠키가 전송될 서버의 도메인을 지정한다.
+
+	2) getDomain(): 쿠키의 도메인을 구한다.
+
+	3) setPath(): 쿠키의 전송 경로를 지정한다. 
+
+	4) getPath(): 쿠키의 전송 경로를 구한다. 
+
+	5) getName(): 쿠키의 이름을 호출
 	
+	6) getValue(): 쿠키의 값을 호출 
+	     
+	7) setMaxAge(int): 쿠키의 유효시간을 초단위로 지정할 수 있다.
+
+  (3) 쿠키 생성
+
+  
+
+
+
 
   
 

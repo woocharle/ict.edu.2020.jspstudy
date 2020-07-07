@@ -1,0 +1,7 @@
+package com.ict.edu01;
+
+public class VO {
+	private String name, age, addr, residence;
+	private String[] hobby, animal;
+	
+}

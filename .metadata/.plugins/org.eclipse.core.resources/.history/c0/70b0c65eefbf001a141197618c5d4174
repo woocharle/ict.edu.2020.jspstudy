@@ -1,0 +1,6 @@
+package com.ict.edu01;
+
+public class VO {
+	private name age addr;
+	
+}

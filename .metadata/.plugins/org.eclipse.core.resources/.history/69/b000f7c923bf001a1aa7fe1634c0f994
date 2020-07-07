@@ -1,0 +1,15 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>JSP 기본객체 : request </title>
+	</head>
+	<body>
+		<% 
+			request.setAttribute("name", "일지매");
+		   	request.setAttribute("age", 40);
+		%>
+	</body>
+</html>
