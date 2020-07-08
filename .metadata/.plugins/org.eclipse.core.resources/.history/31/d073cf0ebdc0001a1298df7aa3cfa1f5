@@ -1,0 +1,27 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<% request.setCharacterEncoding("UTF-8");
+	String id = request.getParameter("id");
+	String pw = request.getParameter("pw");
+	
+	//id와 pw와 일치하면 로그인 성공
+	if(id.equals(pw)){
+		session.setAttribute("log", 1);
+		session.setAttribute("id", id);
+	}
+	
+%>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>로그인 성공 및 장바구니 예제</title>
+
+	</head>
+	<body>
+
+		
+		
+		
+	</body>
+</html>
