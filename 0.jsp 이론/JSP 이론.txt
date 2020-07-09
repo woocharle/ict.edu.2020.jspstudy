@@ -535,7 +535,7 @@ window - preferances
 	8) setMaxInactiveInterval(시간): 세션 시간 제한.
 
 
-10. 표현언어 (EL, Expression Language)
+10. 표현언어 (EL, Expression Language) [Jsp07]
 
   (1) Intro
 
@@ -551,11 +551,62 @@ window - preferances
 	1) EL은 JSP에서 바로 만든 변수의 값은 호출이 되지 않는다. 
 	   그래서 4가지 저장소에 저장 후 호출 하면 가능.
 
-	2) 4가지 저장소에 솟겅의 이름이 같으면 우선 순위는 제일작은 pageContext가 먼저다.
+	2) 4가지 저장소에 속성의 이름이 같으면 우선 순위는 제일작은 pageContext가 먼저다.
 	   pagecontext > request > session > application.
+
+	   * JavaScript는 required가 그냥 먹히지 않고 함수를 만들어야 한다. [Jsp07_1_0.jsp 참고]
+
+  (3) EL로 파라미터 값 받기 [Jsp07_1_1.jsp]
+
+	1) 표현방법: ${param.이름}, ${paramValues.이름[index]}
+
+
+11. JSTL: JSP 표준 태그 라이브러리(core) [Jsp08]
+
+  (1) Intro 
+
+	1) 라이브러리를 다운받아서 해당 프로젝트에게 저장한다. (tomcat.apache.org)
+	   톰캣에 들어가서 맨 아래에 있는 Jar file Impl, Spec, EL 세가지를 받는다. 
+		
 	
+	2) 다운받은 라이브러리를 WEB-INF 안에 lib에 넣어주세요.
+	
+	3) page지시어 및에 taglib 지시어를 통해서 선언하고 사용한다.
+
+	   - 코어: <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
+
+	   - 국제화:  <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %> 
 
 
+	4) EL과 함께 쓰인다.
+
+
+  (2) 사용방법: <c:명령어> </c:명령어> EL과 함께 사용한다.
+	
+	1) 변수 생성(set)    :  <c:set var="변수이름" value="데이터" />
+
+	2) 변수 출력(out)    :  2-1) <c:out value= "${변수이름}" />
+
+				2-2) ${변수이름}     =>   이게 많이 쓰임.
+
+	3) 변수 삭제(remove) :  <c:remove var="변수이름"/>
+
+	4) 조건문
+	
+           4-1) 특징: else가 없다. 조건이 참이 아니면 if문 무시. switch문 대신 choose문이 있다.
+
+	   4-2) 표현방법: 
+
+	   	<c:if test="조건식(관계 연산, 비교 연산) * EL방식을 쓸 것" var="변수명">
+			[조건이 참이면 실행할 내용];	 	
+	  	</c:if>
+  
+	   4-3) choose문
+ 		<c:choose>
+	 		<c:when test="조건식1(EL)">조건1이 참일 때 실행</c:when>
+	 		<c:when test="조건식2(EL)">조건2이 참일 때 실행</c:when>
+	 		<c:when test="조건식3(EL)">조건3이 참일 때 실행</c:when>
+	 	</c:choose>
  
 	    
 
