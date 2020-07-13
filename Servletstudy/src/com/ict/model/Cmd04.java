@@ -12,6 +12,7 @@ public class Cmd04 {
 	public ArrayList<VO_1> exec_1(HttpServletRequest request, HttpServletResponse response) {
 		String name = request.getParameter("name");
 		String grd ="";
+		list = new ArrayList<VO_1>();
 		int kor= Integer.parseInt(request.getParameter("kor"));
 		int eng= Integer.parseInt(request.getParameter("eng"));
 		int math= Integer.parseInt(request.getParameter("math"));
@@ -59,7 +60,7 @@ public class Cmd04 {
 		op = " " + op + " ";
 		
 		vo.setSu1(su1);
-		vo.setSu1(su2);
+		vo.setSu2(su2);
 		vo.setOp(op);
 		vo.setSum(sum);
 		list.add(vo);

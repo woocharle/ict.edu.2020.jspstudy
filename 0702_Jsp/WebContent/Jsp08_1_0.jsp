@@ -17,10 +17,16 @@
 			
 			
 	 	--%>
-	 	
-	 <h2>
+	 <h2> 1. Intro </h2>	
+	 <h3>
 	 	<%-- 변수 생성 --%>
 	 	<c:set var="test" value="Hello JSP" />
+	 
+	 	<%-- 배열 생성 --%>
+	 	<c:set var="arr" value= "김호중, 임영웅, 영탁, 이찬원"/>
+	 	<c:set var="arr2" value= "김호중, 임영웅, 영탁, 이찬원/김희재, 장민호/정동원, 김성주"/>
+	 
+	 
 	 
 	 	<%-- 변수데이터 출력 --%>
 	 	<li> <c:out value="test" /> </li>
@@ -52,8 +58,57 @@
 	 		<c:when test="${sum < 70}"> <li> F </li></c:when>		
 	 	</c:choose>
 	 	
+	 	<c:forEach begin="0" end = "10" step = "1" var = "i">
+	 		${i} &nbsp;&nbsp;
+	 	</c:forEach>
 	 	
-	 </h2>
+	 	<br>
+	 	
+	 	<c:forEach begin="0" end = "10" step = "1" var = "i">
+	 		<c:if test="${i % 2 == 0}">
+	 			${i} &nbsp;&nbsp;
+	 		</c:if>
+	 		
+	 	</c:forEach>
+	 	
+	 	<br>
+
+	 	<c:forEach begin="20" end = "29" step = "1" var = "i" varStatus="vs">
+	 		${i} / ${vs.index} / ${vs.count} / ${vs.first} / ${vs.last} <br>
+	 	</c:forEach>
+	 	
+	 	<br>
+	 	
+	 	<c:forEach var="k" items="${arr}">
+	 		${k} &nbsp;&nbsp;
+	 	</c:forEach>
+	 	
+	 	<br>
+	 	
+	 	<c:forTokens var="k" items="${arr2}" delims="/ ,">
+	 		${k} &nbsp;&nbsp;
+	 	</c:forTokens>
+	 </h3>
+	 
+	 <h2> 2.페이지 이동 </h2>
+	 <h3>
+	 	<%-- 
+	 		<jsp:forward page="Jsp08_1_1.jsp"/>
+	 	--%>
+	 	
+	 	<%-- 
+	 	<c:redirect url="Jsp08_1_1.jsp">
+	 		<c:param name="name" value="마징가"></c:param>	 	
+	 	</c:redirect>
+	 	--%>
+	 	
+	 	<%request.setCharacterEncoding("UTF-8"); %>
+	 	<jsp:forward page="Jsp08_1_1.jsp">
+	 		<jsp:param value="아수라 백작" name="name"/>
+	 	</jsp:forward>
+	 	
+	 	
+	 </h3>	
 	 	
 	 	
 	</body>

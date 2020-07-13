@@ -9,15 +9,16 @@ public class VO_1 {
 	private int math;
 	private int sum;
 	private double avg;
-	private int dan;
-	private int time;
+
 	
 	//사칙연산
 	private String su1;
 	private String su2;
 	private String op;
 
-
+	//시급
+	private int dan;
+	private int time;
 	
 	public VO_1() {
 		// TODO Auto-generated constructor stub
@@ -45,8 +46,6 @@ public class VO_1 {
 
 		
 	}
-
-
 
 	public String getName() {
 		return name;
@@ -104,6 +103,8 @@ public class VO_1 {
 		this.avg = d_avg;
 	}
 
+	// 일당
+	
 	public int getDan() {
 		return dan;
 	}

@@ -1,0 +1,11 @@
+
+0. Intro 
+
+   (1) 웹에 Oracle을 연동하는 것이다. 
+
+   (2) WebContend -> lib에 ojdbc8.jar파일 복사하여 옮긴다.
+
+       * ojdbc8.jar는 sqldeveloper -> jdbc - lib 에 있다.
+		     
+
+   (3) session을 다룰 때 해당 페이지에 입력한 값이 변하지 않기 때문에 신경써야 된다. 
