@@ -12,7 +12,7 @@
 	String idx = vo.getIdx();
 	
 	int result = DAO.getInstance().getUpdate(idx, m_name, m_age);
-	pageContext.setAttribute("result", result);
+	session.setAttribute("result", result);
 	
 	//기존의 세션의 정보를 업데이트하자.
 	

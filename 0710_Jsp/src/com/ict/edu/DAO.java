@@ -77,10 +77,10 @@ public class DAO {
 			} catch (Exception e2) {
 				// TODO: handle exception
 			}
-			return vo;
-			
+						
 		}
-		
+		return vo;
+
 	}
 	
 	// 회원가입

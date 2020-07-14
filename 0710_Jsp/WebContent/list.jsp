@@ -46,8 +46,9 @@
 		<div> 	
 			<h1> 전체 리스트 보기</h1>
 			<table>
-				<thead></thead>
+				<thead>
 					<th>번호</th><th>M_ID</th><th>m_name</th><th>m_age</th><th>m_reg</th>
+				</thead>
 				<tbody></tbody>
 					<c:choose>
 						<c:when test = "${empty list}" > 
