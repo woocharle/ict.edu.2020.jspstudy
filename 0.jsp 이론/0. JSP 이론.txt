@@ -678,5 +678,138 @@ window - preferances
 	3) 날짜 구하기 [jsp08_2_0.jsp 참고]
 
 
+------------------------------------- 0715_UpDown 프로젝트에서 시작 ------------------------------------
 
 
+12. 파일 다운로드 업로드 [ex01, ex02]
+
+  (1) 준비
+
+	1) http://www.servlets.com/ 접속
+
+	2) 중간 하단에 download the package에서 cos-20.08.zip을 찾는다.
+
+	3) 압축을 풀고 lib폴더를 찾아서 cos.jar 가져오기
+
+	4) WebContent의 WEB-INF로 가서 lib에 넣는다.
+
+  	5) 프로젝트 안에 파일을 WebContent에 저장할 폴더(upload)를 생성 
+           * 주의: 프로젝트를 실행하기 전에 폴더를 만들어야 된다. 그렇지 않으면 
+              C:\study\jspstudy\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\
+		(프로젝트 이름) 에서 폴더를 만들어야된다. 
+
+  (2) 업로드  
+
+	1) form 태그를 작성할 때 아래와 같이 작성해야 된다. 
+
+	     <form method="post" enctype="multipart/form-data"></form>
+
+	2) cos.jar안에 MultipartRequest 클래스로 업로드 한다.
+	
+	* MultipartRequest 클래스의 주요매소드
+
+	   - Multipart Request는 기본 생성자가 없음
+
+	   - getParameter(String) 	: String
+		
+  	   - getParameterValues(String) : String[]
+
+	   - getOriginalFileName(String): String (업로드 당시 파일 이름)
+	
+	   - getFilesystemName(String)  : String (저장 당시 파일 이름)
+		
+	   - getContentType(String)	: String (해당 파일의 종류)
+
+	   - getFile(String)		: File => 업로드된 파일을 File Class로 변경. 
+
+
+	3) 실제 파일이 저장될 위치를 구하자(톰켓 안에 프로젝트 안에 존재)
+
+	4) MultipartRequest 클래스를 객체로 생성
+
+	   new MultipartRequest(
+		[request정보], 
+		[저장위치 정도], 
+		[업로드 용량], 
+		[인코딩], 
+		new DefaultFileRenamePolicy()
+		);
+		
+
+	 5) 파일 클래스 사용 예시
+
+	    <li> 올린사람: <%= mr.getParameter("name") %></li>
+	    <li> 파일원본이름: <%= mr.getOriginalFileName("file_name") %></li>
+	    <li> 저장된 파일이름: <%= mr.getFilesystemName("file_name") %></li>
+	    <li> 파일타입: <%= mr.getContentType("file_name") %></li>
+	    <hr>
+	    <% File file = mr.getFile("file_name"); %>
+	    <li> 파일이름: <%=file.getName() %></li>
+	    <li> 파일크기: <%=file.length() / 1024  %> KB</li>
+	    <li> 마지막수정날짜: <%=file.lastModified()  %></li>
+
+	    * file.lastModified()에서 나온 날짜는 1970.01.01 부터 지금 현재 날짜까지 수치화 한 것.
+ 	      정리하려면 아래의 코드를 작성
+            
+	6) 업로드 받은 파일 열기 
+
+	    <img src="upload/<%=file.getName()%>" style="width: 150px">
+
+  (3) 다운로드
+
+	1) 소스코드
+	<%@page import="java.net.URLEncoder"%>
+	<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+	<%
+		request.setCharacterEncoding("UTF-8");
+		String path = request.getParameter("path");
+		String file_name = request.getParameter("file_name");
+	
+		//실제 위치 
+		String r_path = getServletContext().getRealPath("/"+path);
+	
+		//다운로드 받을 수 있도록 클라이언트 (웹 브라우저)에 문서 타입을 변경한다.
+		response.setContentType("application/x-msdownload");
+	
+		//http 헤더 정보를 첨부파일에 존재하는 것으로 변경
+		response.setHeader("Content-Disposition", "attachment; filename="+URLEncoder.encode				("file_name", "utf-8"));
+
+		// * 여기까지는 형식상 되지만 실질적으로 다운 받아지는 것은 아니다.
+		
+		// 실제로 다운을 받으려면 바이트 스크림으로 다운로드를 해야된다.//
+		File file = new File(r_path+"/"+new String(file_name.getBytes("utf-8")));
+		int b;
+		FileInputStream fis = null;
+		BufferedInputStream bis = null;
+		BufferedOutputStream bos = null;
+		try{
+			fis = new FileInputStream(file);
+			bis = new BufferedInputStream(fis);
+		
+			bos = new BufferedOutputStream(response.getOutputStream());
+			while((b=bis.read()) != -1){
+			bos.write(b);
+			bos.flush();
+		}
+		out.clear();
+		out = pageContext.pushBody();
+		
+		}catch(Exception e){
+		
+		}finally{
+			try{
+				bos.close();
+				bis.close();
+				fis.close();
+			} catch(Exception e2){
+			
+			}
+		}	
+	
+
+	%>
+
+
+
+
+ 

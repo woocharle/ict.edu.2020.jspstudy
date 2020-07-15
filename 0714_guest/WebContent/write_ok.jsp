@@ -16,6 +16,7 @@
 	int result = DAO.getInstance().getInsert(name, sub, con, email, pw);
 	
 	pageContext.setAttribute("result", result);
+	
 	/*
 	VO vo = new VO();
 	vo.setM_name(request.getParameter("name"));
@@ -27,6 +28,17 @@
 	int result2 = DAO.getInstance().getInsert2(vo);
 	*/
 %>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title> 방 명 록 </title>
+</head>
+<body>
+	<h2> <%=name %></h2>
+</body>
+</html>
+<%-- 
 <c:choose>
 	<c:when test="${result > 0}">
 		<script>
@@ -42,3 +54,4 @@
 	</c:otherwise>
 
 </c:choose>
+--%>

@@ -9,6 +9,7 @@
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
 			<item value="th"/>
+			<item value="td"/>
 			<item value="Jsp02_internalObject_2_1.jsp"/>
 			<item value="Jsp02_internalObject_2_0.jsp"/>
 			<item value="session"/>
@@ -22,6 +23,7 @@
 		</list>
 		<list key="replacehistory">
 			<item value="td"/>
+			<item value="th"/>
 			<item value="Jsp02_IO_2_1.jsp"/>
 			<item value="Jsp02_IO_2_0.jsp"/>
 			<item value="application"/>
