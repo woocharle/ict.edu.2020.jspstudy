@@ -1,6 +1,6 @@
 서블릿 & JSP
 
-1. 환경 설정 :
+0. 환경 설정 :
   1) JDK 설치 및 환경 설정
   2) tomcat 설치 및 환경 설정
    가.환경설정
@@ -71,6 +71,8 @@ window - preferances
 
 
 ======================================================================================================
+
+
 0. Introduction
 
  (1) 웹브라우저는 리퀘스트 (요청) responce (응답)으로 이루어져 있다. 
@@ -608,8 +610,12 @@ window - preferances
 	 		<c:when test="조건식1(EL)">조건1이 참일 때 실행</c:when>
 	 		<c:when test="조건식2(EL)">조건2이 참일 때 실행</c:when>
 	 		<c:when test="조건식3(EL)">조건3이 참일 때 실행</c:when>
-	 	</c:choose>
 
+			<c:when test="조건식(EL)">조건이 참일 때 실행</c:when>
+			<c:otherwise> 조건이 거짓일 때 실행 </c:otherwise>	
+	 	</c:choose>
+		
+ 		*<c:otherwise></c:otherwise> 구문인 else역할을 한다.
 
 	5) 반복문
  
@@ -641,7 +647,7 @@ window - preferances
 			반복내용
 		</c:forTokens>
 
-
+	  
 
   (3) 페이지 이동 [Jsp08_1]
 

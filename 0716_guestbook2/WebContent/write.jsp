@@ -15,11 +15,11 @@
 	<script type="text/javascript">
 		function save_go(f){
 			
-			var arr = [f.name.value, f.sub.value, f.email.value, f.pw.value];
+			var arr = [f.name, f.sub, f.email, f.pw];
 			for (var k in arr) {
-				if(arr[k] ==""){
+				if(arr[k].value ==""){
 					alert("데이터 값을 입력하시오");
-					f.name.focus();
+					arr[k].focus();
 					return;
 				}
 			}
@@ -36,7 +36,7 @@
 		<h2> 방명록 : 작성화면 </h2>
 		<hr>
 		<p>[<a href="list.jsp">목록으로 이동</a>]</p>
-		<form method="post">
+		<form method="post" enctype="multipart/form-data">
 			<table>
 				<tbody>
 					<tr>

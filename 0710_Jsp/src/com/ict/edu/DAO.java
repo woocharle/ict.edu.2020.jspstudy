@@ -4,10 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.Statement;
 import java.util.ArrayList;
-
-import com.sun.javafx.collections.ListListenerHelper;
 
 public class DAO {
 	Connection conn;
@@ -18,35 +15,33 @@ public class DAO {
 	
 	// 싱글톤 패턴 : 프로그램이 끝날 때까지 하나의 객체를 사용
 	//               필요한 객체를 또 만들지 않고 한번 만든 객체를 재사용하는 것
-
+	
 	private static DAO dao = new DAO();
 	
 	public static DAO getInstance() {
 		return dao;
 	}
 	
-	// 접속
 	public Connection getConnection() {
 		try {
 			list = new ArrayList<VO>();
-			// 오라클 드라이버 로딩
 			Class.forName("oracle.jdbc.OracleDriver");
 			String url = "jdbc:oracle:thin:@203.236.220.86";
 			String user = "c##jwc";					
 			String password = "1112";
 			
-			conn = DriverManager.getConnection(url, user, password);
+			conn=DriverManager.getConnection(url, user, password);
 			
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
+		
 		return conn;
 	}
 	
-	//로그인 
 	public VO getlogin(String m_id, String m_pw) {
 		VO vo = null;
-		
+				
 		try {
 			conn = getConnection();
 			String sql = "select * from members where m_id=? and m_pw=?";
@@ -80,7 +75,6 @@ public class DAO {
 						
 		}
 		return vo;
-
 	}
 	
 	// 회원가입
@@ -211,7 +205,5 @@ public class DAO {
 		
 		return result;
 	}
-	
-	
 	
 }

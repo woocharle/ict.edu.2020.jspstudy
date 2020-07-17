@@ -12,7 +12,7 @@ public class DAO {
 	ResultSet rs;
 	int result;
 	ArrayList<VO> list;
-	String sql;
+	
 	
 	private static DAO dao = new DAO();
 	
@@ -38,6 +38,7 @@ public class DAO {
 		return conn;
 		
 	}
+
 	
 	// Database로 부터 list에 필요한 data 받기
 	public ArrayList<VO> getList(){
@@ -78,12 +79,49 @@ public class DAO {
 		return list;
 	}
 	
+	
+	public VO getOnelist(String idx) {
+		VO vo = new VO();
+		try {
+			conn = getConnection();
+			String sql = "SELECT * FROM guestbook2 where idx=?";
+			pstm = conn.prepareStatement(sql);
+			pstm.setString(1, idx);
+			rs = pstm.executeQuery();		
+
+			while (rs.next()) {
+				vo.setIdx(rs.getString("idx"));
+				vo.setName(rs.getString("name"));
+				vo.setSub(rs.getString("subject"));
+				vo.setCon(rs.getString("content"));
+				vo.setFp(rs.getString("filename"));
+				vo.setEmail(rs.getString("email"));
+				vo.setPw(rs.getString("pwd"));
+				vo.setReg(rs.getString("regdate"));
+			}
+			
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		} finally {
+			try {
+				rs.close();
+				pstm.close();
+				conn.close();				
+			} catch (Exception e2) {
+				// TODO: handle exception
+			}
+		}
+
+		return vo;
+	}
+	
 	public int getIDU(VO vo, String mth) {
 		result=0;
 		
 		try {
 			conn = getConnection();
-			
+			String sql;
 			switch (mth) {
 				case "Insert":
 					sql = "insert into guestbook2 \n" + 
@@ -99,10 +137,23 @@ public class DAO {
 					break;
 					
 				case "Delete":
+					sql = "DELETE FROM guestbook2 \n" + 
+						  "where idx=?";
+					pstm = conn.prepareStatement(sql);
+					pstm.setString(1, vo.getIdx());
 					
 					break;
 					
 				case "Update":
+					sql = "UPDATE guestbook2 \n" + 
+						  "SET name=?, subject=?, content=?, filename = ?, email=? where idx=?";
+					pstm = conn.prepareStatement(sql);
+					pstm.setString(1, vo.getName());
+					pstm.setString(2, vo.getSub());
+					pstm.setString(3, vo.getCon());
+					pstm.setString(4, vo.getFp());
+					pstm.setString(5, vo.getEmail());
+					pstm.setString(6, vo.getIdx());
 					
 					break;
 
