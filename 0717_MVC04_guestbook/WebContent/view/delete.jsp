@@ -13,8 +13,13 @@
 	<script type="text/javascript">
 		function delete_ok(f) {
 			if(f.pwd.value == "${vo.pwd}"){
-				f.action="/0717_MVC04_guestbook/MyController?cmd=delete";
-				f.submit();
+				var chk = confirm("정말 삭제할까요?");
+				if(chk){
+					f.action="/0717_MVC04_guestbook/MyController?cmd=delete";
+					f.submit();
+				} else {
+					history.go(-1);
+				}
 			}
 			else{
 				alert("비밀번호 불일치");

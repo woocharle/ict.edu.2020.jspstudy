@@ -15,8 +15,13 @@
 	<script>
 		function delete_ok(f) {
 			if(f.pw.value == "${vo.pw}"){
-				f.action="delete_ok.jsp"
-				f.submit();
+				var chk = confirm("정말 삭제할까요?");
+				if(chk){
+					f.action = "delete_ok.jsp"
+					f.submit();
+				} else{
+					history.go(-1);
+				}
 				
 			} else{
 				alert("비밀번호가 일치하지 않습니다.");

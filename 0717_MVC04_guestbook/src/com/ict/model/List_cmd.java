@@ -16,4 +16,5 @@ public class List_cmd implements Command{
 		
 		return "view/list.jsp";
 	}
+	
 }

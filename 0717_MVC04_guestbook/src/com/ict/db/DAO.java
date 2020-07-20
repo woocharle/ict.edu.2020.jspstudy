@@ -39,8 +39,8 @@ public class DAO {
 			String sql = "SELECT * FROM guestbook WHERE idx=?";
 			pstm = conn.prepareStatement(sql);
 			pstm.setString(1, idx);
-			
 			rs = pstm.executeQuery();
+			
 			while(rs.next()) {
 				vo.setIdx(rs.getString("idx"));
 				vo.setName(rs.getString("name"));
@@ -121,7 +121,7 @@ public class DAO {
 					pstm.setString(4, vo.getEmail());
 					pstm.setString(5, vo.getPwd());
 					
-				break;
+					break;
 				
 				case "Update":
 					sql = "UPDATE guestbook \n" + 

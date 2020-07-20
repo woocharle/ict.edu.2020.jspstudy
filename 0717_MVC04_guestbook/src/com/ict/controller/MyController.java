@@ -30,58 +30,17 @@ public class MyController extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		String cmd = request.getParameter("cmd");
 		Command comm = null;
-		int result = 0;
 		String path = "";
 		
 		switch (cmd) {
-			case "list": 
-				comm = new List_cmd(); 
-				path = comm.exec(request, response);
-				break;
-			
-			case "write": 		
-				comm = new Write_cmd(); 
-				Write_cmd wr = new Write_cmd();
-				result = wr.exec_1(request, response);
-				if(result > 0) {
-					path = comm.exec(request, response);
-				} else {
-					path = wr.exec_2(request, response);
-				}
-				break;
-			
-			case "onelist":
-				comm = new Onelist_cmd();
-				path = comm.exec(request, response);
-				break;
-				
-			case "update":
-				comm = new Update_cmd();
-				Update_cmd up = new Update_cmd();
-				result = up.exec_1(request, response);
-				if(result > 0) {
-					path = comm.exec(request, response);
-				} else {
-					path = up.exec_2(request, response);
-				}
-				
-				break;
-				
-			case "delete":
-				comm = new Delete_cmd();
-				Delete_cmd dl = new Delete_cmd();
-				result = dl.exec_1(request, response);
-				if(result > 0) {
-					path = comm.exec(request, response);
-				} else {
-					path = dl.exec_2(request, response);
-				}
-				break;
+			case "list": comm = new List_cmd(); break;
+			case "write": comm = new Write_cmd(); break;
+			case "onelist": comm = new Onelist_cmd(); break;
+			case "update": comm = new Update_cmd(); break;
+			case "delete":comm = new Delete_cmd(); break;
 				
 		}
-		
-		
-		
+		path = comm.exec(request, response);
 		request.getRequestDispatcher(path).forward(request, response);
 		
 		

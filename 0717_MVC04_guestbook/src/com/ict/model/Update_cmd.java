@@ -9,12 +9,7 @@ import com.ict.db.VO;
 public class Update_cmd implements Command{
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
-		return "view/list.jsp";
-
-	}
-	
-
-	public int exec_1(HttpServletRequest request, HttpServletResponse response) {
+		
 		VO vo = new VO();
 		
 		vo.setIdx(request.getParameter("idx"));
@@ -22,18 +17,18 @@ public class Update_cmd implements Command{
 		vo.setSubject(request.getParameter("subject"));
 		vo.setContent(request.getParameter("content"));
 		vo.setEmail(request.getParameter("email"));
-
+		
+		
 		int result = DAO.getInstance().getIDU(vo,"Update");
 		
-		request.getSession().setAttribute("VO", vo);
+		request.getSession().setAttribute("vo", vo);
 		
-		return result;
+		if(result > 0) {
+			return "MyController?cmd=onelist&idx=" + vo.getIdx();
+		} else {
+			return "view/update.jsp";
+		}
 		
-	}
-	
-	public String exec_2(HttpServletRequest request, HttpServletResponse response) {
-		return "view/update.jsp";
-
 	}
 	
 }

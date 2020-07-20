@@ -13,15 +13,6 @@ public class Write_cmd implements Command {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
-		ArrayList<VO> list = DAO.getInstance().getList();
-		request.getSession().setAttribute("list", list);
-		return "view/list.jsp";
-			
-	}
-	
-	
-	public int exec_1(HttpServletRequest request, HttpServletResponse response) {
-		
 		VO vo = new VO();
 		vo.setName(request.getParameter("name"));
 		vo.setSubject(request.getParameter("subject"));
@@ -30,13 +21,19 @@ public class Write_cmd implements Command {
 		vo.setPwd(request.getParameter("pwd"));
 		
 		int result = DAO.getInstance().getIDU(vo,"Insert");
+				
+		ArrayList<VO> list = DAO.getInstance().getList();
+		request.getSession().setAttribute("list", list);
+		
+		// alert을 하고 싶으면 jsp를 만들고 경로를 만들어 보낼 것.
+		
+		if(result > 0) {
+			return "view/list.jsp";
+		} else {
+			return "view/write.jsp";
+		}
 
-		return result;
-	}
-	
-	public String exec_2(HttpServletRequest request, HttpServletResponse response) {
-		return "view/write.jsp";
-			
+		
 	}
 	
 	

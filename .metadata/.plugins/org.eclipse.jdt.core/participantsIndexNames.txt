@@ -25,6 +25,8 @@ C:\study\jspstudy\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\35554644
 \0714_guest\src
 C:\study\jspstudy\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\4206924086.index
 \0716_guestbook2\src
+C:\study\jspstudy\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\302840328.index
+\0720_MVC01_guestbook2\src
 C:\study\jspstudy\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\4205095239.index
 \0717_MVC02\src
 C:\study\jspstudy\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3997929292.index
