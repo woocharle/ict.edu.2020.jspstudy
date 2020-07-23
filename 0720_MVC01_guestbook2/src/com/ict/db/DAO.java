@@ -128,7 +128,7 @@ public class DAO {
 					pstm.setString(5, vo.getEmail());
 					pstm.setString(6, vo.getPwd());
 					
-				break;
+					break;
 				
 				case "Delete":
 					sql = "DELETE FROM guestbook2 \n" + 
@@ -141,6 +141,7 @@ public class DAO {
 				case "Update":
 					sql = "UPDATE guestbook2 \n" + 
 						  "SET name=?, subject=?, content=?, filename = ?, email=? where idx=?";
+					
 					pstm = conn.prepareStatement(sql);
 					pstm.setString(1, vo.getName());
 					pstm.setString(2, vo.getSubject());

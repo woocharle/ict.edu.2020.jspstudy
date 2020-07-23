@@ -1,7 +1,5 @@
 package com.ict.model;
 
-
-import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -11,22 +9,18 @@ import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 public class Write_cmd implements Command {
-@Override
+	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
-	
-		ServletContext context = request.getSession().getServletContext();
-		String path = context.getRealPath("/upload");
+		
 		int result = 0;
-		MultipartRequest mr;
 		
 		try {
-			mr = new MultipartRequest(request, 
+			String path = request.getServletContext().getRealPath("/upload");
+			MultipartRequest mr = new MultipartRequest(request, 
 								 path, 
 								 100*1024*1024, 
 								 "utf-8", 
 								 new DefaultFileRenamePolicy());
-			
-			request.getSession().setAttribute("mr", mr);
 			
 			VO vo = new VO();
 			vo.setName(mr.getParameter("name"));
@@ -35,7 +29,7 @@ public class Write_cmd implements Command {
 			vo.setPwd(mr.getParameter("pwd"));
 			vo.setContent(mr.getParameter("content"));
 			
-			if(mr.getFile("fp") != null){
+			if(mr.getFile("filename") != null){
 				vo.setFilename(mr.getFilesystemName("filename"));
 			} else{
 				vo.setFilename("");
@@ -49,13 +43,11 @@ public class Write_cmd implements Command {
 		}	
 		
 		if (result > 0) {
-			return "/0720_MVC01_guestbook2/MyController?cmd=list";
+			return "MyController?cmd=list";
 		} else {
 			return "view/write.jsp";
 		}
-		
-	
-	
-		
+
 	}
+	
 }

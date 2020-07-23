@@ -13,9 +13,14 @@
 	</style>
 	<script type="text/javascript">
 		function update_go(f){
-			f.action = "/0720_MVC01_guestbook2/MyController?cmd=update"
+			f.action = "view/update.jsp"
 			f.submit();
 		}
+		function delete_go(f){
+			f.action = "/0720_MVC01_guestbook2/MyController?cmd=delete"
+			f.submit();
+		}
+		
 	</script>
 </head>
 <body>
@@ -52,7 +57,11 @@
 							</c:otherwise>
 						</c:choose>
 					</tr>
-				
+					<tr>
+						<td colspan="2" style="padding:15px">
+							<textarea rows="10" cols="60" name="content">${vo.content}</textarea>
+						</td>
+					</tr>
 				</tbody>
 				<tfoot>
 					<tr align="center">

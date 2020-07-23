@@ -10,7 +10,7 @@
 		table{width: 500px; border-collapse:collapse; text-align: center;}
 		table,th,td{border: 1px solid black; padding: 3px}	
 	</style>
-		<script>
+	<script type="text/javascript">
 		function save_go(f){
 			
 			var arr = [f.name, f.sub, f.email, f.pw];
@@ -31,7 +31,7 @@
 </head>
 <body>
 	<div align="center">
-		<h2> 방명록 </h2>
+		<h2> 방명록 : 작성화면 </h2>
 		<hr>
 		<p>[ <a href ="/0720_MVC01_guestbook2/MyController?cmd=list">목록으로 이동 </a>]</p>
 		<form method="post" enctype="multipart/form-data">
