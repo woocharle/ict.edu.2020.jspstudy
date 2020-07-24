@@ -81,7 +81,10 @@
 
 	
    (2) mapper.xml과 config.xml 생성: Mybatis에 딸린 pdf파일 참고
+	
+	1) config.xml pdf파일 7p참고
 
+ 	2) mapper.xml pdf파일 8p참고
 
    (3) DAO
 

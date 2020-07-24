@@ -23,6 +23,28 @@ public class DAO {
 		list = getSession().selectList("list");
 		return list;
 	}
+	
+	// 삽입
+	public static int getInsert(BVO bvo) {
+		int result = 0 ;
+		result = getSession().insert("insert", bvo);  
+		ss.commit();
+		return result ;
+	}
+	
+	// 조회수 업데이트 
+	public static int getHitUp(String b_idx) {
+		int result = 0 ;
+		result = getSession().update("hitup", b_idx);
+		ss.commit();
+		return result;
+	}
+	// 상세내용 가져오기 
+	public static BVO getOneList(String b_idx) {
+		BVO bvo = null;
+		bvo = getSession().selectOne("onelist", b_idx);
+		return bvo;
+	}
 }
 
 
