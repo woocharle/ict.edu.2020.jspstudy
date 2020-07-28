@@ -119,8 +119,37 @@ table tfoot ol.paging li a:hover {
 					<td colspan="4">
 						<ol class="paging">
 						<!-- 이전 -->
+						<c:choose>
+							<c:when test="${paging.beginBlock <= paging.pagePerBlock }">
+								<li class="disable">이전으로</li>
+							</c:when>
+							<c:otherwise>
+								<li>이전으로</li>
+							</c:otherwise>
+						</c:choose>
+						
 						<!-- 블록안에 들어간 페이지번호들 -->
+						<c:forEach begin="${paging.beginBlock}" end="${paging.endBlock }" step="1" var="k">
+							<!-- 현재 페이지이냐 아니야 구분 -->
+							<c:choose>
+								<c:when test="${k==paging.nowPage}">
+								    <li class="now">${k}</li>	
+								</c:when>
+								<c:otherwise>
+									<li><a href="/MyController?cmd=list&cPage=${k}">${k}</a></li>
+								</c:otherwise>
+							</c:choose>
+						</c:forEach>
+						
 						<!-- 다음 -->
+						<c:choose>
+							<c:when test="${paging.endBlock >= paging.totalPage }">
+								<li class="disable">다음으로</li>
+							</c:when>
+							<c:otherwise>
+								<li>다음으로</li>
+							</c:otherwise>
+						</c:choose>
 						</ol>
 					</td>
 					<td>

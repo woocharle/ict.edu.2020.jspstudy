@@ -47,6 +47,18 @@
 		f.action="/MyController?cmd=list"
 		f.submit();				
 	}
+	function update_ok(f) {
+		if("${bvo.pwd}" == f.pwd.value){
+			f.action = "/MyController?cmd=update_ok";
+			f.submit();
+		}else{
+			alert("비밀번호가 틀립니다.\n다시입력해주세요");
+			f.pwd.value="";
+			f.pwd.focus();
+			return;
+		}
+		
+	}
 </script>
 </head>
 <body>

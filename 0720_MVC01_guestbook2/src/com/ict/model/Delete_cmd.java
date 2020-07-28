@@ -26,7 +26,6 @@ public class Delete_cmd implements Command{
 			
 			result = DAO.getInstance().getIDU(vo, "Delete");
 
-			
 		} catch (Exception e) {
 			// TODO: handle exception
 		}

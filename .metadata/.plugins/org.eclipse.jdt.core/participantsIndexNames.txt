@@ -29,6 +29,8 @@ C:\study\jspstudy\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\39034296
 \0715_UpDown\src
 C:\study\jspstudy\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\302840328.index
 \0720_MVC01_guestbook2\src
+C:\study\jspstudy\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2609801088.index
+\0724_Board01\src
 C:\study\jspstudy\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\151805437.index
 \0717_MVC01\src
 C:\study\jspstudy\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3997929292.index
@@ -39,5 +41,7 @@ C:\study\jspstudy\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\28394748
 \0717_MVC01\src
 C:\study\jspstudy\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\843913239.index
 \0716_MVC01\src
+C:\study\jspstudy\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1020869636.index
+\0728_Board2\src
 C:\study\jspstudy\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\670108479.index
 \0714_guest\src

@@ -42,6 +42,13 @@
 	.hit {width:15%}
 	.title{background:lightsteelblue}
 	.odd {background:silver}
+	
+	.div1{
+		border: 1px solid blue;
+		width: 60%;
+		margin: 0px auto;
+		padding: 5px 20px;
+	}
 </style>
 <script type="text/javascript">
 	function list_go(f) {
@@ -54,6 +61,14 @@
 	}
 	function delete_go(f) {
 		f.action = "/MyController?cmd=delete";
+		f.submit();
+	}
+	function comment_go(f) {
+		f.action = "/MyController?cmd=c_write"
+		f.submit();
+	}
+	function c_delete(f) {
+		f.action="/MyController?cmd=c_delete";
 		f.submit();
 	}
 </script>
@@ -76,9 +91,9 @@
 					<th>내용:</th>
 					<td>
 						 <script src="https://cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
-						 <textarea name="content"><pre>${bvo.content}</pre></textarea>
+						 <textarea name="content" readonly><pre>${bvo.content}</pre></textarea>
                 		 <script>
-                        	CKEDITOR.replace( 'content' );
+                        	CKEDITOR.replace('content');
                 		</script>
 					</td>
 				</tr>
@@ -107,6 +122,51 @@
 		</table>
 		</form>
 	</div>
+	<%-- 댓글 처리 --%>
+	<br>
+	<hr>
+	<br>
+	<div class="div1">
+		<form method="post">
+			<p> 이름 : <input type="text" name="writer" size="15"> </p>
+			<p> 내용 : <br>
+			   <textarea rows="4" cols="40" name="content"></textarea>
+			</p>
+			<p> 비밀번호 : <input type="password" name="pwd" size="15"> </p>
+			<input type="button" value="댓글 저장" onclick="comment_go(this.form)">
+			<%-- 댓글 저장 후 다시 onelistcommend로 가야 하기 때문에  --%>
+			<input type="hidden" name= "b_idx" value="${bvo.b_idx}">
+		</form>
+	</div>
+	<br>
+	<hr>
+	<%-- 댓글 출력 --%>
+	<div style="display: table; margin-left: 100px; ">
+		<c:forEach var="k" items="${clist}">
+			<div style="border: 1px solid #cc00cc; width: 400px; margin: 20px; padding: 20px;">
+				<form method="post" >
+					<p>이름 : ${k.writer} </p>	
+					<p>날짜 : ${k.write_date.substring(0,10)} </p>
+					<p>내용 : <pre>${k.content}</pre></p>
+					<input type="button" value="댓글삭제" onclick="c_delete(this.form)">
+					<input type="hidden" name="c_idx" value="${k.c_idx}">
+					<input type="hidden" name="b_idx" value="${k.b_idx }">				</form>
+			</div>
+			<hr>
+		</c:forEach>
+	</div>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
 

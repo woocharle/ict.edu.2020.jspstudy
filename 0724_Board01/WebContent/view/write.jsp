@@ -3,65 +3,67 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<style type="text/css">
-	#bbs table {
-	    width:800px;
-	    margin:0 auto;
-	    margin-top:20px;
-	    border:1px solid black;
-	    border-collapse:collapse;
-	    font-size:14px;
-	    
-	}
-	
-	#bbs table caption {
-	    font-size:20px;
-	    font-weight:bold;
-	    margin-bottom:10px;
-	}
-	
-	#bbs table th {
-	    text-align:center;
-	    border:1px solid black;
-	    padding:4px 10px;
-	}
-	
-	#bbs table td {
-	    text-align:left;
-	    border:1px solid black;
-	    padding:4px 10px;
-	}
-	
-	.no {width:15%}
-	.subject {width:30%}
-	.writer {width:20%}
-	.reg {width:20%}
-	.hit {width:15%}
-	.title{background:lightsteelblue}
-	.odd {background:silver}
-</style>
-
-<script type="text/javascript">
-	function list_go(f) {
-		f.action="/MyController?cmd=list"
-		f.submit();				
-	}
-	function send_go(f) {
-		// 유효성 검사
-		for (var i = 0; i < f.elements.length; i++) {
-			if(f.elements[i].value==""){
-				alert(f.elements[i].name+"를 입력하세요");
-				f.elements[i].focus();
-				return;
-			}
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style type="text/css">
+		#bbs table {
+		    width:800px;
+		    margin:0 auto;
+		    margin-top:20px;
+		    border:1px solid black;
+		    border-collapse:collapse;
+		    font-size:14px;
+		    
 		}
 		
+		#bbs table caption {
+		    font-size:20px;
+		    font-weight:bold;
+		    margin-bottom:10px;
+		}
 		
+		#bbs table th {
+		    text-align:center;
+		    border:1px solid black;
+		    padding:4px 10px;
+		}
 		
-	}
-</script>
+		#bbs table td {
+		    text-align:left;
+		    border:1px solid black;
+		    padding:4px 10px;
+		}
+		
+		.no {width:15%}
+		.subject {width:30%}
+		.writer {width:20%}
+		.reg {width:20%}
+		.hit {width:15%}
+		.title{background:lightsteelblue}
+		.odd {background:silver}
+		
+	</style>
+	
+	<script type="text/javascript">
+		function list_go(f) {
+			f.action="/MyController?cmd=list"
+			f.submit();				
+		}
+		function send_go(f) {
+			// 유효성 검사
+			for (var i = 0; i < f.elements.length; i++) {
+				if(f.elements[i].value==""){
+					if(i==2 || i==3) continue;  // 제외 시킬 때 사용 
+					alert(f.elements[i].name+"를 입력하세요");
+					f.elements[i].focus();
+					return;
+				}
+			}
+			f.action="/MyController?cmd=write"
+			f.submit();		
+			
+		}
+	</script>
 </head>
 <body>
 	<div id="bbs">
@@ -89,7 +91,7 @@
 				</tr>
 				<tr>
 					<th>첨부파일:</th>
-					<td><input type="file" name="file_name"/></td>
+					<td><input type="file" name="filename"/></td>
 				</tr>
 				<tr>
 					<th>비밀번호:</th>

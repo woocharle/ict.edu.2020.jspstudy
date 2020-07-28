@@ -9,8 +9,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.ict.model.C_Delete_cmd;
+import com.ict.model.C_Update_cmd;
+import com.ict.model.C_Write_cmd;
 import com.ict.model.Command;
+import com.ict.model.Delete0_cmd;
+import com.ict.model.Delete_cmd;
 import com.ict.model.List_cmd;
+import com.ict.model.Onelist_cmd;
+import com.ict.model.Update0_cmd;
+import com.ict.model.Write0_cmd;
+import com.ict.model.Write_cmd;
+import com.ict.model.Update_cmd;
 
 @WebServlet("/MyController")
 public class MyController extends HttpServlet {
@@ -33,7 +43,16 @@ public class MyController extends HttpServlet {
 		
 		switch (cmd) {
 			case "list": comm = new List_cmd(); break;
-
+			case "onelist": comm = new Onelist_cmd(); break;
+			case "write_0": comm = new Write0_cmd(); break;
+			case "write": comm = new Write_cmd(); break;
+			case "update_0": comm = new Update0_cmd(); break;
+			case "update": comm = new Update_cmd(); break;
+			case "delete_0": comm = new Delete0_cmd(); break;
+			case "delete": comm = new Delete_cmd(); break;
+			case "c_write": comm = new C_Write_cmd(); break;
+			case "c_update": comm = new C_Update_cmd(); break;
+			case "c_delete": comm = new C_Delete_cmd(); break;
 		}
 		path = comm.exec(request, response);
 		request.getRequestDispatcher(path).forward(request, response);		

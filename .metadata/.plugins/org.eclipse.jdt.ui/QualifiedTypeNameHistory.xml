@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="java.util.Calendar"/>
-<fullyQualifiedTypeName name="com.ict.model.Cmd01"/>
-<fullyQualifiedTypeName name="com.ict.model.Cmd02"/>
 <fullyQualifiedTypeName name="com.ict.model.Cmd03"/>
 <fullyQualifiedTypeName name="com.ict.model.Cmd04"/>
 <fullyQualifiedTypeName name="java.sql.Statement"/>
@@ -20,7 +17,6 @@
 <fullyQualifiedTypeName name="java.sql.ResultSet"/>
 <fullyQualifiedTypeName name="java.sql.Connection"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
-<fullyQualifiedTypeName name="com.ict.model.Onelist_cmd"/>
 <fullyQualifiedTypeName name="com.ict.model.Down_cmd"/>
 <fullyQualifiedTypeName name="javax.servlet.ServletContext"/>
 <fullyQualifiedTypeName name="java.net.URLEncoder"/>
@@ -29,20 +25,11 @@
 <fullyQualifiedTypeName name="java.io.BufferedInputStream"/>
 <fullyQualifiedTypeName name="java.io.BufferedOutputStream"/>
 <fullyQualifiedTypeName name="com.ict.model.Update_cmd"/>
-<fullyQualifiedTypeName name="com.ict.model.Delete_cmd"/>
 <fullyQualifiedTypeName name="java.io.File"/>
 <fullyQualifiedTypeName name="java.io.InputStream"/>
-<fullyQualifiedTypeName name="com.ict.model.Write_cmd"/>
-<fullyQualifiedTypeName name="com.oreilly.servlet.MultipartRequest"/>
-<fullyQualifiedTypeName name="com.oreilly.servlet.multipart.DefaultFileRenamePolicy"/>
 <fullyQualifiedTypeName name="com.ict.model.All_cmd"/>
 <fullyQualifiedTypeName name="com.ict.model.Dept_cmd"/>
 <fullyQualifiedTypeName name="com.ict.model.Dynamic_cmd"/>
-<fullyQualifiedTypeName name="com.ict.db.VO"/>
-<fullyQualifiedTypeName name="java.util.HashMap"/>
-<fullyQualifiedTypeName name="java.util.Map"/>
-<fullyQualifiedTypeName name="java.io.PrintWriter"/>
-<fullyQualifiedTypeName name="com.ict.model.Command"/>
 <fullyQualifiedTypeName name="org.apache.ibatis.session.SqlSessionFactory"/>
 <fullyQualifiedTypeName name="org.apache.ibatis.session.SqlSessionFactoryBuilder"/>
 <fullyQualifiedTypeName name="javax.annotation.Resource"/>
@@ -50,8 +37,27 @@
 <fullyQualifiedTypeName name="org.apache.ibatis.session.SqlSession"/>
 <fullyQualifiedTypeName name="com.ict.db.DBservice"/>
 <fullyQualifiedTypeName name="com.ict.db.DBService"/>
-<fullyQualifiedTypeName name="com.ict.model.List_cmd"/>
-<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="com.ict.model.Write_cmd"/>
+<fullyQualifiedTypeName name="com.ict.model.Write0_cmd"/>
+<fullyQualifiedTypeName name="com.ict.model.Onelist_cmd"/>
+<fullyQualifiedTypeName name="com.ict.model.Update0_cmd"/>
+<fullyQualifiedTypeName name="com.oreilly.servlet.MultipartRequest"/>
+<fullyQualifiedTypeName name="com.oreilly.servlet.multipart.DefaultFileRenamePolicy"/>
+<fullyQualifiedTypeName name="com.ict.model.update_cmd"/>
+<fullyQualifiedTypeName name="com.ict.model.Delete0_cmd"/>
+<fullyQualifiedTypeName name="com.ict.model.Delete_cmd"/>
 <fullyQualifiedTypeName name="com.ict.db.BVO"/>
+<fullyQualifiedTypeName name="com.ict.model.C_Write_cmd"/>
+<fullyQualifiedTypeName name="com.ict.model.C_Update_cmd"/>
+<fullyQualifiedTypeName name="com.ict.model.C_Delete_cmd"/>
+<fullyQualifiedTypeName name="com.ict.db.CVO"/>
+<fullyQualifiedTypeName name="java.util.Map"/>
+<fullyQualifiedTypeName name="java.io.PrintWriter"/>
+<fullyQualifiedTypeName name="com.ict.model.Command"/>
+<fullyQualifiedTypeName name="com.ict.model.List_cmd"/>
 <fullyQualifiedTypeName name="com.ict.db.DAO"/>
+<fullyQualifiedTypeName name="com.ict.db.VO"/>
+<fullyQualifiedTypeName name="com.ict.model.Paging"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.util.HashMap"/>
 </qualifiedTypeNameHistroy>

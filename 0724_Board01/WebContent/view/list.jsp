@@ -4,81 +4,81 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<meta charset=UTF-8>
-<title>Insert title here</title>
-<style type="text/css">
-#bbs table {
-	width:580px;
-	margin:0 auto;
-	margin-top:20px;
-	border: 1px solid black;
-	border-collapse: collapse;
-	font-size: 14px;
-}
-
-#bbs table caption {
-	font-size: 20px;
-	font-weight: bold;
-	margin-bottom: 10px;
-}
-
-#bbs table th, #bbs table td {
-	text-align: center;
-	border: 1px solid black;
-	padding: 4px 10px;
-}
-
-.no { width: 15% }
-.subject { 	width: 30% }
-.writer {	width: 20% }
-.reg {	width: 20% }
-.hit {	width: 15% }
-.title {	background: lightsteelblue }
-.odd {	background: silver }
-
-/* paging */
-table tfoot ol.paging {
-	list-style: none;
-}
-
-table tfoot ol.paging li {
-	float: left;
-	margin-right: 8px;
-}
-
-table tfoot ol.paging li a {
-	display: block;
-	padding: 3px 7px;
-	border: 1px solid #00B3DC;
-	color: #2f313e;
-	font-weight: bold;
-}
-
-table tfoot ol.paging li a:hover {
-	background: #00B3DC;
-	color: white;
-	font-weight: bold;
-}
-
-.disable {
-	padding: 3px 7px;
-	border: 1px solid silver;
-	color: silver;
-}
-
-.now {
-	padding: 3px 7px;
-	border: 1px solid #ff4aa5;
-	background: #ff4aa5;
-	color: white;
-	font-weight: bold;
-}
-</style>
-<script type="text/javascript">
-	function write_go() {
-		location.href = "view/write.jsp";
+	<meta charset=UTF-8>
+	<title>Insert title here</title>
+	<style type="text/css">
+	#bbs table {
+		width:580px;
+		margin:0 auto;
+		margin-top:20px;
+		border: 1px solid black;
+		border-collapse: collapse;
+		font-size: 14px;
 	}
-</script>
+	
+	#bbs table caption {
+		font-size: 20px;
+		font-weight: bold;
+		margin-bottom: 10px;
+	}
+	
+	#bbs table th, #bbs table td {
+		text-align: center;
+		border: 1px solid black;
+		padding: 4px 10px;
+	}
+	
+	.no { width: 15% }
+	.subject { 	width: 30% }
+	.writer {	width: 20% }
+	.reg {	width: 20% }
+	.hit {	width: 15% }
+	.title {	background: lightsteelblue }
+	.odd {	background: silver }
+	
+	/* paging */
+	table tfoot ol.paging {
+		list-style: none;
+	}
+	
+	table tfoot ol.paging li {
+		float: left;
+		margin-right: 8px;
+	}
+	
+	table tfoot ol.paging li a {
+		display: block;
+		padding: 3px 7px;
+		border: 1px solid #00B3DC;
+		color: #2f313e;
+		font-weight: bold;
+	}
+	
+	table tfoot ol.paging li a:hover {
+		background: #00B3DC;
+		color: white;
+		font-weight: bold;
+	}
+	
+	.disable {
+		padding: 3px 7px;
+		border: 1px solid silver;
+		color: silver;
+	}
+	
+	.now {
+		padding: 3px 7px;
+		border: 1px solid #ff4aa5;
+		background: #ff4aa5;
+		color: white;
+		font-weight: bold;
+	}
+	</style>
+	<script type="text/javascript">
+		function write_go() {
+			location.href = "/MyController?cmd=write_0";
+		}
+	</script>
 </head>
 <body>
 	<div id="bbs" align="center">
@@ -103,8 +103,8 @@ table tfoot ol.paging li a:hover {
 					<c:otherwise>
 						<c:forEach var="k" items="${list}" varStatus="vs">
 							<tr>
-								<td>${vs.count}</td>
-								<td><a href="#">${k.subject}</a></td>
+								<td>${paging.totalRecord-((paging.nowPage-1))*paging.numPerPage + vs.index}</td>
+								<td><a href="/MyController?cmd=onelist&b_idx=${k.b_idx}&cPage=${paging.nowPage}">${k.subject}</a></td>
 								<td>${k.writer}</td>
 								<td>${k.writedate.substring(0,10)}</td>
 								<td>${k.hit}</td>
@@ -119,8 +119,38 @@ table tfoot ol.paging li a:hover {
 					<td colspan="4">
 						<ol class="paging">
 						<!-- 이전 -->
+						<c:choose>
+							<c:when test="${paging.beginBlock <= paging.pagePerBlock}">
+								<li class="disable">이전으로</li>
+							</c:when>
+							<c:otherwise>
+								<li><a href="/MyController?cmd=list&cPage=${paging.beginBlock-paging.pagePerBlock }">이전으로</a></li>
+							</c:otherwise>						
+						</c:choose>
+						
 						<!-- 블록안에 들어간 페이지번호들 -->
+						<c:forEach begin="${paging.beginBlock}" end="${paging.endBlock}" step="1" var="k">
+							<!-- 현재 페이지이냐 아니야 구분 -->
+							<c:choose>
+								<c:when test="${k==paging.nowPage}">
+								    <li class="now">${k}</li>	
+								</c:when>
+								<c:otherwise>
+									<li><a href="/MyController?cmd=list&cPage=${k}">${k}</a></li>
+								</c:otherwise>
+							</c:choose>
+						</c:forEach>
+						
 						<!-- 다음 -->
+						<c:choose>
+							<c:when test="${paging.endBlock >= paging.totalPage }">
+								<li class="disable">다음으로</li>
+							</c:when>
+							<c:otherwise>
+								<li><a href="/MyController?cmd=list&cPage=${paging.beginBlock+paging.pagePerBlock }">다음으로</a></li>
+							</c:otherwise>
+						</c:choose>												
+						
 						</ol>
 					</td>
 					<td>
