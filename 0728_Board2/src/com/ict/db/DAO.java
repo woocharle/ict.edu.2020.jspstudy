@@ -40,4 +40,35 @@ public class DAO {
 		return result;
 	}
 	
+	public static VO getOnelist(String idx){
+		VO vo = new VO();	
+		vo = getSession().selectOne("onelist", idx);
+		return vo;
+	}
+	
+	
+	public static int getIDU(VO vo, String mth) {
+		int result = 0;
+		
+		switch (mth) {
+			case "Insert": result = getSession().insert("insert", vo); break;
+			case "Update": result = getSession().update("update", vo); break;
+			case "Delete": result = getSession().delete("delete", vo.getIdx()); break;
+		}
+		
+		ss.commit();
+		
+		return result;
+	}
+	
+	public static int getHit(String idx) {
+		int result = 0;
+		result = getSession().update("hitup", idx);
+		
+		ss.commit();
+		
+		return result;
+	}
+	
+	
 }

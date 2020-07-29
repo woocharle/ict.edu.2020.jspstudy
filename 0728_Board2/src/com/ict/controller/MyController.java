@@ -9,8 +9,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.ict.model.Ans_write_cmd;
 import com.ict.model.Command;
+import com.ict.model.Delete0_cmd;
+import com.ict.model.Delete_cmd;
 import com.ict.model.List_cmd;
+import com.ict.model.Onelist_cmd;
+import com.ict.model.Update_cmd;
+import com.ict.model.Write0_cmd;
+import com.ict.model.Write_cmd;
+import com.ict.model.update0_cmd;
+
 
 /**
  * Servlet implementation class MyController
@@ -23,9 +32,6 @@ public class MyController extends HttpServlet {
 		doPost(request, response);
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/HTML; charset=UTF-8");
@@ -35,7 +41,15 @@ public class MyController extends HttpServlet {
 		String cmd = request.getParameter("cmd");
 		switch (cmd) {
 			case "list": comm = new List_cmd(); break;
-
+			case "write_0": comm = new Write0_cmd(); break;
+			case "write": comm = new Write_cmd(); break;
+			case "onelist": comm = new Onelist_cmd(); break;
+			case "update_0": comm = new update0_cmd(); break;
+			case "update": comm = new Update_cmd(); break;
+			case "delete_0": comm = new Delete0_cmd(); break;
+			case "delete": comm = new Delete_cmd(); break;
+			case "ans_write": comm = new Ans_write_cmd(); break;
+		
 		}
 			
 		String path = comm.exec(request, response);

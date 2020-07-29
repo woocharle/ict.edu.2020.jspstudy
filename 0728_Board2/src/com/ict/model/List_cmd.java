@@ -56,13 +56,11 @@ public class List_cmd implements Command{
 			paging.setEndBlock(paging.getTotalPage());
 		}
 		
-		
-		request.setAttribute("paging", paging);
-		
 		//DB처리
 		
 		List<VO> list = DAO.getList(paging);
 		request.setAttribute("list", list);
+		request.setAttribute("paging", paging);
 		
 		return "view/list.jsp";
 		

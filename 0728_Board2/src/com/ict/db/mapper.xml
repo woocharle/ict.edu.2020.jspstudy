@@ -15,6 +15,35 @@
 		) where r_num between #{begin} and #{end}
 	</select>
 	
+	<select id="onelist" parameterType="String" resultType="com.ict.db.VO">
+		select * from board where idx = #{idx}
+	</select>
+	
+	
+	<insert id="insert" parameterType="com.ict.db.VO">
+		insert into board
+		values (board_seq.nextval, #{writer}, #{title}, #{content}, #{pwd},
+			   0, group_seq.nextval, 0, 0, sysdate, #{filename})
+	</insert>
+	
+	
+	<update id="update" parameterType="com.ict.db.VO">
+		update board
+		set writer=#{writer}, title=#{title}, filename=#{filename}, content=#{content}
+		where idx=#{idx}
+	
+	</update>
+	
+	<update id="hitup" parameterType="String">
+		update board
+		set   hit = hit + 1 
+		where idx= #{idx}
+	</update>
+	
+	<delete id="delete" parameterType="String">	
+		delete from board
+		where idx=#{idx}
+	</delete>
 	
 		
 </mapper>

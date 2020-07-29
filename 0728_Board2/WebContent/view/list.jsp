@@ -20,18 +20,18 @@
 	}
 	
 	h2{text-align: center;}
-
+	table{margin: 0px auto;}
 	</style>
 	<script type="text/javascript">
-		function write(){
-			
+		function write_go(){
+			location.href = "/MyController?cmd=write_0";
 		}
 	
 	</script>
 </head>
 <body>
 	<h2>BBS 리스트</h2>
-	<table width="800px" align="center">
+	<table width="800px" >
 		<thead>
 			<tr>
 				<th width="10%">번호</th>
@@ -44,18 +44,21 @@
 		<tbody>
 			<c:choose>
 				<c:when test="${empty list}">
-					<td colspan="5">
-						<h3>원하시는 자료가 존재하지 않습니다.</h3>
-					</td>
+					<tr>
+						<td colspan="5">
+							<h3>원하시는 자료가 존재하지 않습니다.</h3>
+						</td>
+					</tr>
 				</c:when>
 				<c:otherwise>
 					<c:forEach var="k" items="${list}" varStatus="vs">
-						<td>${paging.totalRecord - ((paging.nowPage-1)*paging.numPerPage + vs.index)}</td>
-						<td>${k.title}</td>
-						<td>${k.writer}</td>
-						<td>${k.regdate.substring(0,10)}</td>
-						<td>${k.hit}</td>
-					
+						<tr>
+							<td>${paging.totalRecord - ((paging.nowPage-1)*paging.numPerpage + vs.index)}</td>
+							<td><a href="/MyController?cmd=onelist&idx=${k.idx}&cPage=${paging.nowPage}">${k.title}</a></td>
+							<td>${k.writer}</td>
+							<td>${k.regdate.substring(0,10)}</td>
+							<td>${k.hit}</td>
+						</tr>
 					</c:forEach>
 				</c:otherwise>
 			</c:choose>	
@@ -63,11 +66,11 @@
 		<tfoot>
 			<tr>
 				<td colspan="4">
-					<!-- 이전 -->
-					<!-- 번호 -->
-					<!-- 이후 -->
+
 				</td>
-				<td><button onclick="write()">글쓰기</button></td>
+				<td>
+					<input type="button" value="글쓰기" onclick="write_go()"/>
+				</td>
 			</tr>
 		
 		</tfoot>
