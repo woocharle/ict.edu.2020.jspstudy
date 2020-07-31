@@ -54,6 +54,8 @@ public class DAO {
 			case "Insert": result = getSession().insert("insert", vo); break;
 			case "Update": result = getSession().update("update", vo); break;
 			case "Delete": result = getSession().delete("delete", vo.getIdx()); break;
+			//댓글
+			case "Insert_2": result = getSession().insert("insert2", vo); break; 
 		}
 		
 		ss.commit();
@@ -68,6 +70,12 @@ public class DAO {
 		ss.commit();
 		
 		return result;
+	}
+	
+	// 기존 원글에 달려 있는 댓글의 lev을 업데이트 할 것.
+	public static void getUP_lev(Map<String, Integer> map) {
+		getSession().update("lev_up", map);
+		ss.commit();
 	}
 	
 	

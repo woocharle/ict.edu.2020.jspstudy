@@ -42,7 +42,7 @@ public class List_cmd implements Command{
 		}
 		
 		//4. 시작번호, 끝번호 구하기 
-		paging.setBegin((paging.getNowPage() - 1) * paging.getNumPerpage());
+		paging.setBegin((paging.getNowPage() - 1) * paging.getNumPerpage() + 1);
 		paging.setEnd((paging.getBegin() - 1) + paging.getNumPerpage());
 		
 		

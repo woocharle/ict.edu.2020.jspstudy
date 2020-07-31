@@ -26,7 +26,12 @@
 			   0, group_seq.nextval, 0, 0, sysdate, #{filename})
 	</insert>
 	
-	
+	<insert id="insert2" parameterType="com.ict.db.VO">
+		insert into board
+		values (board_seq.nextval, #{writer}, #{title}, #{content}, #{pwd}, 
+		        0, #{groups}, #{step}, #{lev} ,sysdate, #{filename})
+	</insert>
+
 	<update id="update" parameterType="com.ict.db.VO">
 		update board
 		set writer=#{writer}, title=#{title}, filename=#{filename}, content=#{content}
@@ -40,6 +45,12 @@
 		where idx= #{idx}
 	</update>
 	
+	<update id="lev_up" parameterType="map">
+		update board
+		set lev = lev + 1
+		where groups = #{groups} and lev >= #{lev} 
+	</update>
+
 	<delete id="delete" parameterType="String">	
 		delete from board
 		where idx=#{idx}

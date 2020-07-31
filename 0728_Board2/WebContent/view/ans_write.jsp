@@ -5,23 +5,25 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<style type="text/css">
-tr {
-	    text-align:center;
-	    padding:4px 10px;
-	    background-color: #F6F6F6;
-	}
-	
-th {
-		width:120px;
-	    text-align:center;
-	    padding:4px 10px;
-	    background-color: #B2CCFF;
-	}
-</style>
+	<style type="text/css">
+		tr {
+			    text-align:center;
+			    padding:4px 10px;
+			    background-color: #F6F6F6;
+			}
+			
+		th {
+				width:120px;
+			    text-align:center;
+			    padding:4px 10px;
+			    background-color: #B2CCFF;
+			}
+		h2{text-align: center;}
+		table { margin: 0px auto;}
+	</style>
 <script type="text/javascript">
 	function sendData(f) {
-		for (var i = 0; i < document.forms[0].elements.length; i++) {
+		for (var i = 0; i < f.elements.length; i++) {
 			if (f.elements[i].value == "") {
 				if (i == 2 || i == 3)
 					continue;
@@ -30,9 +32,15 @@ th {
 				return;//수행 중단
 			}
 		}
-		f.action="/MyController?cmd=write"
+		f.action="/MyController?cmd=ans_write"
 		f.submit();
 	}
+	
+	function list_go(f) {
+		f.action = "/MyController?cmd=list" ;
+		f.submit();				
+	}
+
 </script>
 </head>
 <body>
@@ -68,8 +76,15 @@ th {
 				</tr>
 				<tr>
 					<td colspan="2">
-					<input type="button" value="입력" onclick="sendData(this.form)" /> 
+					<input type="button" value="댓글입력" onclick="sendData(this.form)" /> 
+					<input type="button" value="목록" onclick="list_go(this.form)" /> 
 					<input type="reset" value="취소" />
+					<input type="hidden" name="cPage" value="${cPage}">
+					
+					<input type="hidden" name="groups" value="${vo.groups}">
+					<input type="hidden" name="step" value="${vo.step}">
+					<input type="hidden" name="lev" value="${vo.lev}">
+					 
 					</td>
 				</tr>
 	            </tbody>

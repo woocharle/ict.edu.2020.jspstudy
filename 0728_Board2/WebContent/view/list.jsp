@@ -54,7 +54,12 @@
 					<c:forEach var="k" items="${list}" varStatus="vs">
 						<tr>
 							<td>${paging.totalRecord - ((paging.nowPage-1)*paging.numPerpage + vs.index)}</td>
-							<td><a href="/MyController?cmd=onelist&idx=${k.idx}&cPage=${paging.nowPage}">${k.title}</a></td>
+							<td style="width:40%; text-align: left; padding-left: 20px;">
+								<c:forEach begin="1" end="${k.step}">
+									&nbsp;&nbsp;[RE]
+								</c:forEach>
+								<a href="/MyController?cmd=onelist&idx=${k.idx}&cPage=${paging.nowPage}">${k.title}</a>
+							</td>
 							<td>${k.writer}</td>
 							<td>${k.regdate.substring(0,10)}</td>
 							<td>${k.hit}</td>
@@ -66,7 +71,38 @@
 		<tfoot>
 			<tr>
 				<td colspan="4">
-
+					<!-- 이전 -->
+					<c:choose>
+						<c:when test="${paging.beginBlock <= paging.pagePerBlock}">
+							<span style="color:lightgray;">이전으로&nbsp;&nbsp;</span>						
+						</c:when>
+						<c:otherwise>
+							<a href="/MyController?cmd=list&cPage=${paging.beginBlock-paging.pagePerBlock}"><span style="color:black;">이전으로&nbsp;&nbsp;</span></a>
+						</c:otherwise>
+					</c:choose>
+					
+					<!-- 페이지 번호 -->
+					<c:forEach begin="${paging.beginBlock}" end="${paging.endBlock}" step="1" var="k">
+						<!-- 현재페이지이냐, 아니냐 구분 -->
+						<c:choose>
+							<c:when test="${k == paging.nowPage }">
+								<font style="font-weight: bold;">${k}</font>
+							</c:when>
+							<c:otherwise>
+								<a href="/MyController?cmd=list&cPage=${k}"><font style="font-weight: bold; color: tomato">${k}</font></a>
+							</c:otherwise>
+						</c:choose>
+					</c:forEach>
+					
+					<!-- 이후-->
+					<c:choose>
+						<c:when test="${paging.endBlock >= paging.totalBlock}">
+							<span style="color:lightgray;">&nbsp;&nbsp;다음으로</span>						
+						</c:when>
+						<c:otherwise>
+							<a href="/MyController?cmd=list&cPage=${paging.beginBlock+paging.pagePerBlock}"><span style="color:black;">&nbsp;&nbsp;다음으로</span></a>
+						</c:otherwise>
+					</c:choose>					
 				</td>
 				<td>
 					<input type="button" value="글쓰기" onclick="write_go()"/>

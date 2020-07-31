@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.ict.model.Ans_write0_cmd;
 import com.ict.model.Ans_write_cmd;
 import com.ict.model.Command;
 import com.ict.model.Delete0_cmd;
@@ -48,6 +49,7 @@ public class MyController extends HttpServlet {
 			case "update": comm = new Update_cmd(); break;
 			case "delete_0": comm = new Delete0_cmd(); break;
 			case "delete": comm = new Delete_cmd(); break;
+			case "ans_write_0": comm = new Ans_write0_cmd(); break;
 			case "ans_write": comm = new Ans_write_cmd(); break;
 		
 		}

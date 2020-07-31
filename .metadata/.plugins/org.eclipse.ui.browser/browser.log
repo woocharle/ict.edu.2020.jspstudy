@@ -156,3 +156,14 @@
 7월 29, 2020 12:14:50.59 [13716:2424:0729/121450.594:ERROR:device_event_log_impl.cc(208)] [12:14:50.595] Bluetooth: bluetooth_adapter_winrt.cc:1074 Getting Default Adapter failed.
 7월 29, 2020 12:16:58.05 [2752:11592:0729/121658.057:ERROR:device_event_log_impl.cc(208)] [12:16:58.057] Bluetooth: bluetooth_adapter_winrt.cc:1074 Getting Default Adapter failed.
 7월 29, 2020 12:30:58.15 [9488:2916:0729/123058.157:ERROR:device_event_log_impl.cc(208)] [12:30:58.157] Bluetooth: bluetooth_adapter_winrt.cc:1074 Getting Default Adapter failed.
+
+7월 30, 2020 09:36:48.69 NEW SESSION
+7월 30, 2020 09:36:48.69 [10120:4740:0730/093648.694:ERROR:device_event_log_impl.cc(208)] [09:36:48.694] Bluetooth: bluetooth_adapter_winrt.cc:1074 Getting Default Adapter failed.
+7월 30, 2020 09:37:44.91 [9208:3284:0730/093744.918:ERROR:device_event_log_impl.cc(208)] [09:37:44.918] Bluetooth: bluetooth_adapter_winrt.cc:1074 Getting Default Adapter failed.
+7월 30, 2020 09:38:09.54 [11808:1332:0730/093809.549:ERROR:device_event_log_impl.cc(208)] [09:38:09.549] Bluetooth: bluetooth_adapter_winrt.cc:1074 Getting Default Adapter failed.
+7월 30, 2020 09:43:51.31 [11784:2412:0730/094351.310:ERROR:device_event_log_impl.cc(208)] [09:43:51.310] Bluetooth: bluetooth_adapter_winrt.cc:1074 Getting Default Adapter failed.
+7월 30, 2020 09:55:25.01 [13952:5392:0730/095525.015:ERROR:device_event_log_impl.cc(208)] [09:55:25.015] Bluetooth: bluetooth_adapter_winrt.cc:1074 Getting Default Adapter failed.
+7월 30, 2020 09:58:13.69 [5800:12296:0730/095813.698:ERROR:device_event_log_impl.cc(208)] [09:58:13.699] Bluetooth: bluetooth_adapter_winrt.cc:1074 Getting Default Adapter failed.
+7월 30, 2020 10:52:29.33 [8316:10400:0730/105229.338:ERROR:device_event_log_impl.cc(208)] [10:52:29.338] Bluetooth: bluetooth_adapter_winrt.cc:1074 Getting Default Adapter failed.
+7월 30, 2020 11:17:27.80 [1988:6364:0730/111727.804:ERROR:device_event_log_impl.cc(208)] [11:17:27.804] Bluetooth: bluetooth_adapter_winrt.cc:1074 Getting Default Adapter failed.
+7월 30, 2020 11:36:26.84 [640:12200:0730/113626.840:ERROR:device_event_log_impl.cc(208)] [11:36:26.841] Bluetooth: bluetooth_adapter_winrt.cc:1074 Getting Default Adapter failed.

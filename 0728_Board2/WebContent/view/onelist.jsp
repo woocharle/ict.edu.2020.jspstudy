@@ -7,13 +7,13 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
-tr {
+	tr {
 	    text-align:center;
 	    padding:4px 10px;
 	    background-color: #F6F6F6;
 	}
 	
-th {
+	th {
 		width:120px;
 	    text-align:center;
 	    padding:4px 10px;
@@ -21,6 +21,8 @@ th {
 	}
 	h2{text-align: center;}
 	table{margin: 0px auto;}
+	
+	
 </style>
 <script type="text/javascript">
 	function list_go(f) {
@@ -36,7 +38,7 @@ th {
 		f.submit();
 	}
 	function ans_write(f) {
-		f.action="/MyController?cmd=ans_write";
+		f.action="/MyController?cmd=ans_write_0";
 		f.submit();
 	}	
 </script>
