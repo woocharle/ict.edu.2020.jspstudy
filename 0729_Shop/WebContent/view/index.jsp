@@ -8,7 +8,7 @@
 </head>
 <body>
 	<jsp:forward page="/MyController">
-		<jsp:param value="shop" name="cmd"/>
+		<jsp:param value="list" name="cmd"/>
 		<jsp:param value="ele002" name="category"/>
 	</jsp:forward>
 </body>

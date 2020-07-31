@@ -22,10 +22,16 @@ public class DAO {
 
 	public static List<VO> getList(String category){
 		List<VO> list = null;
-
 		list = getSession().selectList("list", category);
 		
 		return list;
+	}
+
+	public static VO getOnelist(String idx) {
+		VO vo = null;
+		vo = getSession().selectOne("onelist", idx);
+		
+		return vo;
 	}
 	
 }

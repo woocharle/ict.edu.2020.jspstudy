@@ -35,9 +35,9 @@
 	  </div>
 	  <hr noshade/>
 	  <div id="nav">
-		  <a href="product_list.jsp?category=com001">컴퓨터</a> | 
-		  <a href="product_list.jsp?category=ele002">가전 제품</a> | 
-		  <a href="product_list.jsp?category=sp003">스포츠</a>
+		  <a href="/MyController?cmd=list&category=com001">컴퓨터</a> | 
+		  <a href="/MyController?cmd=list&category=ele002">가전 제품</a> | 
+		  <a href="/MyController?cmd=list&category=sp003">스포츠</a>
 	  </div>
 	  <hr noshade/>
   </div>

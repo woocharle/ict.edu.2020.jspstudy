@@ -26,7 +26,7 @@ public class VO {
 	}
 	
 	public int getPercent() {
-		float per = (p_price - p_saleprice) * 100 / p_saleprice;	
+		float per = (p_price - p_saleprice) * 100 / p_price;	
 		return (int)per;
 	}
 	

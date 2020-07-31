@@ -9,8 +9,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.ict.model.Add_cmd;
 import com.ict.model.Command;
+import com.ict.model.Content_cmd;
+import com.ict.model.Delete_cmd;
+import com.ict.model.Edit_cmd;
 import com.ict.model.Shop_cmd;
+import com.ict.model.View_cmd;
 
 
 @WebServlet("/MyController")
@@ -29,8 +34,12 @@ public class MyController extends HttpServlet {
 		
 		String cmd = request.getParameter("cmd");
 		switch (cmd) {
-			case "shop": comm = new Shop_cmd() ; break;
-
+			case "list": comm = new Shop_cmd() ; break;
+			case "content": comm = new Content_cmd(); break;
+			case "addcart": comm = new Add_cmd(); break;
+			case "viewcart": comm = new View_cmd(); break;
+			case "edit": comm = new Edit_cmd(); break;
+			case "delete": comm = new Delete_cmd(); break;
 		}
 			
 		String path = comm.exec(request, response);
