@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<products>
+	<product price="1000">딸기우유</product>
+	<product price="1000">초코우유</product>
+	<product price="1000">커피우유</product>
+	<product price="900">그냥우유</product>
+</products>

@@ -1,12 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="java.sql.ResultSet"/>
-<fullyQualifiedTypeName name="java.sql.Connection"/>
-<fullyQualifiedTypeName name="com.ict.model.Down_cmd"/>
-<fullyQualifiedTypeName name="javax.servlet.ServletContext"/>
-<fullyQualifiedTypeName name="java.net.URLEncoder"/>
-<fullyQualifiedTypeName name="com.sun.java.util.jar.pack.Package.File"/>
-<fullyQualifiedTypeName name="java.io.FileInputStream"/>
 <fullyQualifiedTypeName name="java.io.BufferedInputStream"/>
 <fullyQualifiedTypeName name="java.io.BufferedOutputStream"/>
 <fullyQualifiedTypeName name="java.io.InputStream"/>
@@ -26,7 +19,6 @@
 <fullyQualifiedTypeName name="com.ict.model.C_Write_cmd"/>
 <fullyQualifiedTypeName name="com.ict.model.C_Update_cmd"/>
 <fullyQualifiedTypeName name="com.ict.model.C_Delete_cmd"/>
-<fullyQualifiedTypeName name="com.ict.db.CVO"/>
 <fullyQualifiedTypeName name="java.io.PrintWriter"/>
 <fullyQualifiedTypeName name="com.ict.model.List_cmd"/>
 <fullyQualifiedTypeName name="com.ict.model.Paging"/>
@@ -41,23 +33,31 @@
 <fullyQualifiedTypeName name="java.io.File"/>
 <fullyQualifiedTypeName name="com.ict.model.Ans_write_cmd"/>
 <fullyQualifiedTypeName name="javax.swing.plaf.multi.MultiProgressBarUI"/>
-<fullyQualifiedTypeName name="com.oreilly.servlet.MultipartRequest"/>
-<fullyQualifiedTypeName name="com.oreilly.servlet.multipart.DefaultFileRenamePolicy"/>
 <fullyQualifiedTypeName name="java.util.Map"/>
 <fullyQualifiedTypeName name="java.util.HashMap"/>
+<fullyQualifiedTypeName name="java.lang.Iterable"/>
+<fullyQualifiedTypeName name="java.util.Iterator"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="com.ict.db.MVO"/>
+<fullyQualifiedTypeName name="com.oreilly.servlet.MultipartRequest"/>
+<fullyQualifiedTypeName name="com.oreilly.servlet.multipart.DefaultFileRenamePolicy"/>
 <fullyQualifiedTypeName name="com.ict.model.Command"/>
 <fullyQualifiedTypeName name="com.ict.model.Shop_cmd"/>
 <fullyQualifiedTypeName name="com.ict.model.Content_cmd"/>
 <fullyQualifiedTypeName name="com.ict.model.View_cmd"/>
-<fullyQualifiedTypeName name="com.ict.model.Add_cmd"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
-<fullyQualifiedTypeName name="java.lang.Iterable"/>
-<fullyQualifiedTypeName name="java.util.Iterator"/>
-<fullyQualifiedTypeName name="com.ict.db.DAO"/>
-<fullyQualifiedTypeName name="java.lang.Integer"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="com.ict.model.Edit_cmd"/>
 <fullyQualifiedTypeName name="com.ict.model.Delete_cmd"/>
+<fullyQualifiedTypeName name="com.ict.model.Login_cmd"/>
+<fullyQualifiedTypeName name="com.ict.model.Loginok_cmd"/>
+<fullyQualifiedTypeName name="com.ict.model.Logout_cmd"/>
+<fullyQualifiedTypeName name="com.ict.model.Admin_cmd"/>
+<fullyQualifiedTypeName name="com.ict.model.Productadd_cmd"/>
 <fullyQualifiedTypeName name="com.ict.db.VO"/>
+<fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="com.ict.model.Add_cmd"/>
+<fullyQualifiedTypeName name="com.ict.db.DAO"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="com.ict.db.CVO"/>
 <fullyQualifiedTypeName name="com.ict.model.Cart"/>
+<fullyQualifiedTypeName name="java.lang.Integer"/>
 </qualifiedTypeNameHistroy>

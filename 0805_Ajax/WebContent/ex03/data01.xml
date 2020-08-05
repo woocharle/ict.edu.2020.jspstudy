@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<products>
+	<product>
+		<name>딸기우유</name>
+		<price>1000</price>
+	</product>
+	<product>
+		<name>초코우유</name>
+		<price>1000</price>
+	</product>
+	<product>
+		<name>커피우유</name>
+		<price>1000</price>
+	</product>
+	<product>
+		<name>그냥우유</name>
+		<price>900</price>
+	</product>
+</products>
